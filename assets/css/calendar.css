@@ -1,0 +1,1016 @@
+.forwp-booking.forwp-booking--calendar {
+	--forwp-booking-accent: #111827;
+	--forwp-booking-accent-soft: #eef2f6;
+	--forwp-booking-accent-soft: color-mix(in srgb, var(--forwp-booking-accent) 12%, var(--forwp-booking-bg));
+	--forwp-booking-border: #e5e7eb;
+	--forwp-booking-border-width: 1px;
+	--forwp-booking-bg: #ffffff;
+	--forwp-booking-text: #111827;
+	--forwp-booking-muted: #6b7280;
+	--forwp-booking-muted: color-mix(in srgb, var(--forwp-booking-text) 55%, var(--forwp-booking-bg));
+	--forwp-booking-track: #f3f4f6;
+	--forwp-booking-track: color-mix(in srgb, var(--forwp-booking-text) 7%, var(--forwp-booking-bg));
+	--forwp-booking-day-available: #eef2f6;
+	--forwp-booking-day-available: color-mix(in srgb, var(--forwp-booking-accent) 10%, var(--forwp-booking-bg));
+	--forwp-booking-danger: #b91c1c;
+	--forwp-booking-radius: 20px;
+	--forwp-booking-radius-inner: max(0px, calc(var(--forwp-booking-radius) * 0.7));
+	--forwp-booking-radius-sm: max(0px, calc(var(--forwp-booking-radius) * 0.5));
+	--forwp-booking-shadow: 0 16px 48px rgba(17, 24, 39, 0.07);
+	--forwp-booking-font: inherit;
+	box-sizing: border-box;
+	color-scheme: light;
+	font-family: var(--forwp-booking-font);
+	max-width: 800px;
+	margin: 0 auto;
+	scroll-margin-top: 5.5rem;
+	padding: 1.35rem 1.35rem 1.5rem;
+	border: var(--forwp-booking-border-width) solid var(--forwp-booking-border);
+	border-radius: var(--forwp-booking-radius);
+	background: var(--forwp-booking-bg);
+	color: var(--forwp-booking-text);
+	box-shadow: var(--forwp-booking-shadow);
+}
+
+.forwp-booking.forwp-booking--calendar *,
+.forwp-booking.forwp-booking--calendar *::before,
+.forwp-booking.forwp-booking--calendar *::after {
+	box-sizing: border-box;
+}
+
+.forwp-booking.forwp-booking--calendar h3,
+.forwp-booking.forwp-booking--calendar h4,
+.forwp-booking.forwp-booking--calendar p,
+.forwp-booking.forwp-booking--calendar span,
+.forwp-booking.forwp-booking--calendar label,
+.forwp-booking.forwp-booking--calendar div {
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking.forwp-booking--calendar [hidden] {
+	display: none !important;
+}
+
+.forwp-booking.forwp-booking--calendar button {
+	appearance: none;
+	-webkit-appearance: none;
+	font: inherit;
+	line-height: 1.2;
+	color: var(--forwp-booking-text);
+	background-color: #fff;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__submit {
+	color: #fff;
+	background-color: var(--forwp-booking-accent);
+}
+
+.forwp-booking.forwp-booking--calendar input,
+.forwp-booking.forwp-booking--calendar textarea {
+	font: inherit;
+	color: var(--forwp-booking-text);
+	background-color: #fff;
+}
+
+.forwp-booking__title {
+	margin: 0 0 1rem;
+	font-size: 1.28rem;
+	font-weight: 700;
+	letter-spacing: -0.03em;
+	line-height: 1.25;
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking__lead {
+	margin: 0 0 1rem;
+	font-size: 0.925rem;
+	line-height: 1.5;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking__tabs {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-auto-rows: 1fr;
+	align-items: stretch;
+	gap: 0.25rem;
+	margin: 0 0 1.25rem;
+	padding: 0.28rem;
+	border: 0;
+	border-radius: var(--forwp-booking-radius-inner);
+	background: var(--forwp-booking-track);
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__tabs br,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__tabs br {
+	display: none !important;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+	float: none;
+	padding: 0.65rem 0.35rem;
+	border: 0;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: transparent;
+	color: var(--forwp-booking-muted);
+	font-size: 0.82rem;
+	font-weight: 600;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__tab.is-active {
+	background: #fff;
+	color: var(--forwp-booking-text);
+	box-shadow: 0 1px 4px rgba(17, 24, 39, 0.1);
+}
+
+@media (max-width: 480px) {
+	.forwp-booking.forwp-booking--calendar button.forwp-booking__tab {
+		padding: 0.55rem 0.2rem;
+		font-size: 0.72rem;
+	}
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__tab {
+	background: transparent;
+	color: var(--forwp-booking-muted);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__tab.is-active {
+	background: #fff;
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking__status {
+	margin: 0 0 1rem;
+	padding: 0.7rem 0.9rem;
+	border-radius: var(--forwp-booking-radius-inner);
+	background: var(--forwp-booking-track);
+	color: var(--forwp-booking-text);
+	font-size: 0.9rem;
+}
+
+.forwp-booking__status.is-error {
+	background: #fef2f2;
+	color: var(--forwp-booking-danger);
+}
+
+.forwp-booking__offerings {
+	display: grid;
+	gap: 0.6rem;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__offering {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	width: 100%;
+	text-align: left;
+	padding: 0.85rem 1rem;
+	border: 1px solid var(--forwp-booking-border);
+	border-radius: var(--forwp-booking-radius-inner);
+	background: #fff;
+	color: var(--forwp-booking-text);
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__offering::after {
+	content: "";
+	width: 0.45rem;
+	height: 0.45rem;
+	margin-left: auto;
+	border-right: 1.6px solid #9ca3af;
+	border-top: 1.6px solid #9ca3af;
+	transform: rotate(45deg);
+	flex-shrink: 0;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__offering:hover,
+.forwp-booking.forwp-booking--calendar button.forwp-booking__offering:focus {
+	border-color: #d1d5db;
+	background: #fafbfc;
+	box-shadow: 0 8px 20px rgba(17, 24, 39, 0.06);
+}
+
+.forwp-booking__avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 2.4rem;
+	height: 2.4rem;
+	border-radius: 999px;
+	background: var(--forwp-booking-accent-soft);
+	color: var(--forwp-booking-text);
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}
+
+.forwp-booking__avatar--sm {
+	width: 1.7rem;
+	height: 1.7rem;
+	font-size: 0.62rem;
+}
+
+.forwp-booking__offering-name {
+	min-width: 0;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__doctor-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 0 0 1rem;
+	padding: 0.35rem 0.45rem 0.35rem 0.4rem;
+	border: 1px solid var(--forwp-booking-border);
+	border-radius: 999px;
+	background: #fff;
+	color: var(--forwp-booking-text);
+	font-size: 0.9rem;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 1px 2px rgba(17, 24, 39, 0.04);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__doctor-chip::after {
+	content: "×";
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.4rem;
+	height: 1.4rem;
+	margin-left: 0.15rem;
+	border-radius: 999px;
+	background: var(--forwp-booking-track);
+	color: var(--forwp-booking-muted);
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0 0 0.85rem;
+	padding: 0.4rem 0.65rem 0.4rem 0.5rem;
+	border: 0;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: transparent;
+	color: var(--forwp-booking-muted);
+	font-size: 0.88rem;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__back::before {
+	content: "←";
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__back:hover {
+	background: var(--forwp-booking-track);
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking__picker {
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+}
+
+@media (min-width: 720px) {
+	.forwp-booking__picker {
+		flex-direction: row;
+		align-items: stretch;
+		gap: 1rem;
+	}
+}
+
+.forwp-booking__panel {
+	border: 1px solid var(--forwp-booking-border);
+	border-radius: var(--forwp-booking-radius-inner);
+	background: #fff;
+}
+
+.forwp-booking__month {
+	width: 100%;
+	max-width: none;
+	padding: 1rem 0.9rem 1.05rem;
+	scroll-margin-top: 5.5rem;
+}
+
+@media (min-width: 720px) {
+	.forwp-booking__month {
+		width: 22.5rem;
+		flex: 0 0 22.5rem;
+	}
+}
+
+.forwp-booking__month-nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.5rem;
+	margin-bottom: 0.75rem;
+}
+
+.forwp-booking__month-label,
+.forwp-booking__times-title {
+	margin: 0;
+	min-width: 0;
+	font-size: 0.98rem;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	text-align: center;
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking__times-title {
+	margin-bottom: 0.75rem;
+	text-align: left;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__nav {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.15rem;
+	height: 2.15rem;
+	padding: 0 !important;
+	border: 0;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: var(--forwp-booking-track);
+	color: var(--forwp-booking-text);
+	cursor: pointer;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__nav svg {
+	display: block;
+	width: 18px !important;
+	height: 18px !important;
+	min-width: 18px;
+	flex-shrink: 0;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__nav:hover {
+	background: #e5e7eb;
+}
+
+.forwp-booking__weekdays,
+.forwp-booking__days {
+	display: grid;
+	grid-template-columns: repeat(7, minmax(0, 1fr));
+	gap: 0.22rem;
+	text-align: center;
+}
+
+.forwp-booking__weekdays span {
+	padding: 0.3rem 0 0.45rem;
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day {
+	height: 2.45rem;
+	border: 0;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: transparent;
+	color: var(--forwp-booking-text);
+	font-size: 0.88rem;
+	cursor: pointer;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day.is-muted {
+	color: #d1d5db;
+	opacity: 1;
+	cursor: default;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day.is-available {
+	font-weight: 650;
+	background: var(--forwp-booking-day-available);
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day.is-available:hover {
+	background: #e2e8f0;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day.is-selected {
+	background: var(--forwp-booking-accent);
+	color: #fff;
+}
+
+.forwp-booking__times {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	background: #f8fafc;
+	scroll-margin-top: 5.5rem;
+}
+
+.forwp-booking__slots {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.45rem;
+	max-height: 19rem;
+	overflow: auto;
+	color: var(--forwp-booking-text);
+	font-size: 0.9rem;
+}
+
+@media (min-width: 480px) {
+	.forwp-booking__slots {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.forwp-booking__slots .forwp-booking__empty {
+		grid-column: 1 / -1;
+	}
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__slot {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.18rem;
+	padding: 0.7rem 0.8rem;
+	border: 1px solid var(--forwp-booking-border);
+	border-radius: var(--forwp-booking-radius-inner);
+	background: #fff;
+	color: var(--forwp-booking-text);
+	font-size: 0.9rem;
+	font-weight: 550;
+	cursor: pointer;
+	transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.forwp-booking__slot-time {
+	font-weight: 700;
+	letter-spacing: -0.02em;
+}
+
+.forwp-booking__slot-meta {
+	font-size: 0.75rem;
+	font-weight: 500;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__slot:hover,
+.forwp-booking.forwp-booking--calendar button.forwp-booking__slot.is-selected {
+	border-color: var(--forwp-booking-accent);
+	background: #fff;
+	box-shadow: 0 0 0 1px var(--forwp-booking-accent);
+}
+
+.forwp-booking__empty {
+	margin: 0;
+	padding: 1.5rem 0.5rem;
+	text-align: center;
+	font-size: 0.9rem;
+	line-height: 1.45;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking__summary {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.55rem;
+	margin: 0 0 0.75rem;
+}
+
+@media (min-width: 560px) {
+	.forwp-booking__summary {
+		grid-template-columns: 1.3fr 1.1fr 0.7fr;
+		gap: 0.35rem;
+		padding: 0.35rem;
+	}
+}
+
+.forwp-booking__summary-item {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	min-width: 0;
+	padding: 0.55rem 0.65rem;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: #fff;
+	font-size: 0.9rem;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.forwp-booking__summary-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 1.7rem;
+	height: 1.7rem;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: var(--forwp-booking-accent-soft);
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking__summary-icon svg {
+	display: block;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__title,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__title {
+	margin: 0 0 1rem !important;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__form,
+.forwp-booking.forwp-booking--calendar .forwp-booking__fields,
+.forwp-booking.forwp-booking--calendar .forwp-booking__field,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__form,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__fields,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.forwp-booking__fields {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.7rem 0.85rem;
+	margin: 0 0 1.2rem !important;
+}
+
+.forwp-booking__field {
+	display: grid;
+	align-content: start;
+	gap: 0.2rem;
+	min-width: 0;
+	min-height: 0;
+}
+
+.forwp-booking__field--full {
+	grid-column: 1 / -1;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__field label,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field label {
+	display: block !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	min-height: 0 !important;
+	font-size: 0.8rem !important;
+	font-weight: 650;
+	line-height: 1.2 !important;
+	color: var(--forwp-booking-text);
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__form p,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__form p {
+	margin: 0 !important;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__field-error[hidden],
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field-error[hidden] {
+	display: none !important;
+	position: absolute !important;
+	width: 0 !important;
+	height: 0 !important;
+	min-height: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__field > br,
+.forwp-booking.forwp-booking--calendar .forwp-booking__field label br,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field br {
+	display: none !important;
+}
+
+.forwp-booking__req {
+	color: var(--forwp-booking-danger);
+	font-weight: 700;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__form input,
+.forwp-booking.forwp-booking--calendar .forwp-booking__form textarea,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__form input,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__form textarea {
+	display: block !important;
+	width: 100% !important;
+	max-width: none !important;
+	min-height: 2.9rem !important;
+	margin: 0 !important;
+	padding: 0.75rem 0.9rem !important;
+	border: 1px solid var(--forwp-booking-border) !important;
+	border-radius: var(--forwp-booking-radius-inner) !important;
+	background: #fff !important;
+	background-color: #fff !important;
+	color: var(--forwp-booking-text) !important;
+	font-size: 1rem !important;
+	line-height: 1.35 !important;
+	box-shadow: none !important;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__form textarea {
+	min-height: 6.4rem;
+	resize: vertical;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__form input:focus,
+.forwp-booking.forwp-booking--calendar .forwp-booking__form textarea:focus {
+	outline: none;
+	border-color: #9ca3af !important;
+	box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08) !important;
+}
+
+.forwp-booking__field.is-invalid input,
+.forwp-booking__field.is-invalid textarea,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field.is-invalid input,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field.is-invalid textarea {
+	border-color: #dc2626 !important;
+	box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important;
+}
+
+.forwp-booking__field-error,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__field-error {
+	margin: 0;
+	font-size: 0.78rem;
+	font-weight: 550;
+	line-height: 1.35;
+	color: var(--forwp-booking-danger) !important;
+}
+
+@media (max-width: 540px) {
+	.forwp-booking.forwp-booking--calendar {
+		padding: 1.1rem;
+		border-radius: var(--forwp-booking-radius);
+	}
+
+	.forwp-booking__fields {
+		grid-template-columns: 1fr;
+	}
+}
+
+.forwp-booking__honeypot {
+	position: absolute;
+	left: -9999px;
+	height: 0;
+	overflow: hidden;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__submit,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__submit {
+	display: block !important;
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 0.98rem 1.15rem !important;
+	border: 0 !important;
+	border-radius: var(--forwp-booking-radius-inner) !important;
+	background: var(--forwp-booking-accent) !important;
+	background-color: var(--forwp-booking-accent) !important;
+	color: #fff !important;
+	font-size: 1rem !important;
+	font-weight: 650 !important;
+	line-height: 1.25 !important;
+	letter-spacing: 0 !important;
+	text-align: center !important;
+	text-decoration: none !important;
+	text-transform: none !important;
+	box-shadow: none !important;
+	cursor: pointer !important;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__submit:hover,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__submit:hover {
+	background: color-mix(in srgb, var(--forwp-booking-accent) 82%, #000) !important;
+	background-color: color-mix(in srgb, var(--forwp-booking-accent) 82%, #000) !important;
+	color: #fff !important;
+}
+
+.forwp-booking__submit:disabled,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__submit:disabled {
+	opacity: 0.6;
+	cursor: wait;
+}
+
+.forwp-booking__step--done {
+	padding: 1.5rem 0.5rem 0.75rem;
+	text-align: center;
+}
+
+.forwp-booking__done-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.4rem;
+	height: 3.4rem;
+	margin: 0 auto 0.9rem;
+	border-radius: 999px;
+	background: #ecfdf5;
+	color: #047857;
+}
+
+.forwp-booking__step--done .forwp-booking__title {
+	margin-bottom: 0.45rem;
+}
+
+.forwp-booking__done {
+	margin: 0;
+	font-size: 0.98rem;
+	line-height: 1.5;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__weekdays span,
+.forwp-booking.forwp-booking--calendar .forwp-booking__lead,
+.forwp-booking.forwp-booking--calendar .forwp-booking__empty,
+.forwp-booking.forwp-booking--calendar .forwp-booking__done,
+.forwp-booking.forwp-booking--calendar .forwp-booking__slot-meta,
+.forwp-booking.forwp-booking--calendar .forwp-booking__summary-icon,
+.forwp-booking.forwp-booking--calendar button.forwp-booking__tab,
+.forwp-booking.forwp-booking--calendar button.forwp-booking__back,
+.forwp-booking.forwp-booking--calendar button.forwp-booking__day.is-muted {
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__done-icon {
+	color: #047857;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__req {
+	color: var(--forwp-booking-danger);
+}
+
+/* Beat Elementor / theme button + heading colors on a white card. */
+.elementor-widget .forwp-booking.forwp-booking--calendar,
+.elementor-widget .forwp-booking.forwp-booking--calendar h3,
+.elementor-widget .forwp-booking.forwp-booking--calendar h4,
+.elementor-widget .forwp-booking.forwp-booking--calendar p,
+.elementor-widget .forwp-booking.forwp-booking--calendar span,
+.elementor-widget .forwp-booking.forwp-booking--calendar label,
+.elementor-widget .forwp-booking.forwp-booking--calendar div,
+.elementor-widget .forwp-booking.forwp-booking--calendar button:not(.forwp-booking__submit):not(.forwp-booking__day.is-selected) {
+	color: var(--forwp-booking-text);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__weekdays span,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__day.is-muted,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__lead,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__empty,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__done,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__slot-meta,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__summary-icon,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__tab,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__back {
+	color: var(--forwp-booking-muted);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__doctor-chip,
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__nav {
+	color: var(--forwp-booking-text);
+	background-color: #fff;
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__nav {
+	background-color: var(--forwp-booking-track);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__back {
+	background-color: transparent;
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__day.is-selected {
+	color: #fff;
+	background-color: var(--forwp-booking-accent);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__req,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__status.is-error {
+	color: var(--forwp-booking-danger);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__done-icon {
+	color: #047857;
+}
+
+.forwp-booking.forwp-booking--calendar.forwp-booking--advanced {
+	max-width: 1080px;
+	padding: 0;
+	overflow: hidden;
+}
+
+.forwp-booking--advanced .forwp-booking__status {
+	margin: 1rem 1.25rem 0;
+}
+
+.forwp-booking--advanced .forwp-booking__chooser,
+.forwp-booking--advanced .forwp-booking__step[data-forwp-step="calendar"] {
+	margin: 0;
+}
+
+.forwp-booking--advanced .forwp-booking__tabs {
+	margin: 0.85rem 1.1rem 0.35rem;
+}
+
+.forwp-booking--advanced[data-forwp-flow="date"] .forwp-booking__aside {
+	display: none;
+}
+
+.forwp-booking--advanced[data-forwp-calendar="off"] .forwp-booking__month,
+.forwp-booking--advanced[data-forwp-calendar="off"] .forwp-booking__times {
+	display: none;
+}
+
+@media (min-width: 860px) {
+	.forwp-booking--advanced[data-forwp-flow="date"] .forwp-booking__board {
+		grid-template-columns: minmax(280px, 1.25fr) minmax(200px, 0.9fr);
+	}
+
+	.forwp-booking--advanced[data-forwp-calendar="off"] .forwp-booking__board {
+		grid-template-columns: minmax(220px, 22rem);
+	}
+
+	.forwp-booking--advanced[data-forwp-calendar="off"] .forwp-booking__aside {
+		border-right: 0;
+	}
+}
+
+.forwp-booking__board {
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+	.forwp-booking__board {
+		grid-template-columns: minmax(220px, 0.95fr) minmax(280px, 1.25fr) minmax(200px, 0.9fr);
+		min-height: 28rem;
+		align-items: stretch;
+	}
+}
+
+.forwp-booking__aside {
+	padding: 1.4rem 1.35rem 1.5rem;
+	border-bottom: 1px solid var(--forwp-booking-border);
+}
+
+@media (min-width: 860px) {
+	.forwp-booking__aside {
+		border-bottom: 0;
+		border-right: 1px solid var(--forwp-booking-border);
+	}
+}
+
+.forwp-booking__aside-kicker {
+	margin: 0 0 0.75rem;
+	font-size: 0.78rem;
+	font-weight: 650;
+	letter-spacing: 0.02em;
+	color: var(--forwp-booking-muted);
+}
+
+.forwp-booking--advanced .forwp-booking__aside .forwp-booking__doctor-chip {
+	margin: 0 0 0.85rem;
+}
+
+.forwp-booking__doctors {
+	display: grid;
+	gap: 0.4rem;
+	margin: 0 0 1.15rem;
+	max-height: 22rem;
+	overflow: auto;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__doctor {
+	display: flex;
+	align-items: center;
+	gap: 0.55rem;
+	width: 100%;
+	padding: 0.4rem 0.5rem;
+	border: 1px solid transparent;
+	border-radius: var(--forwp-booking-radius-sm);
+	background: transparent;
+	color: var(--forwp-booking-text);
+	font-size: 0.88rem;
+	font-weight: 600;
+	text-align: left;
+	cursor: pointer;
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__doctor:hover {
+	background: var(--forwp-booking-track);
+}
+
+.forwp-booking.forwp-booking--calendar button.forwp-booking__doctor.is-selected {
+	background: var(--forwp-booking-accent-soft);
+	border-color: #e5e7eb;
+}
+
+.forwp-booking__identity {
+	display: grid;
+	justify-items: start;
+	gap: 0.65rem;
+}
+
+.forwp-booking__avatar--lg {
+	width: 3.5rem;
+	height: 3.5rem;
+	font-size: 0.92rem;
+}
+
+.forwp-booking__identity-name {
+	margin: 0;
+	font-size: 1.35rem;
+	font-weight: 750;
+	letter-spacing: -0.03em;
+	line-height: 1.2;
+}
+
+.forwp-booking--advanced .forwp-booking__lead {
+	margin: 0;
+}
+
+.forwp-booking--advanced .forwp-booking__month {
+	width: auto;
+	max-width: none;
+	flex: none;
+	padding: 1.25rem 1.1rem 1.35rem;
+}
+
+.forwp-booking--advanced .forwp-booking__month-nav {
+	justify-content: space-between;
+}
+
+.forwp-booking__month-arrows {
+	display: flex;
+	gap: 0.3rem;
+}
+
+.forwp-booking--advanced .forwp-booking__month-label {
+	text-align: left;
+	min-width: 0;
+}
+
+.forwp-booking--advanced .forwp-booking__times {
+	flex: none;
+	padding: 1.25rem 1.1rem 1.35rem;
+	border-top: 1px solid var(--forwp-booking-border);
+	border-radius: 0;
+	background: #fff;
+}
+
+@media (min-width: 860px) {
+	.forwp-booking--advanced .forwp-booking__times {
+		border-top: 0;
+		border-left: 1px solid var(--forwp-booking-border);
+	}
+}
+
+.forwp-booking--advanced .forwp-booking__slots {
+	grid-template-columns: 1fr;
+	max-height: 22rem;
+}
+
+.forwp-booking.forwp-booking--advanced button.forwp-booking__slot {
+	align-items: center;
+	padding: 0.85rem 1rem;
+	border-radius: var(--forwp-booking-radius-inner);
+}
+
+.forwp-booking--advanced .forwp-booking__slot-time {
+	font-size: 0.98rem;
+}
+
+.forwp-booking--advanced .forwp-booking__step[data-forwp-step="details"],
+.forwp-booking--advanced .forwp-booking__step--done {
+	padding: 1.25rem 1.5rem 1.55rem;
+}
+
+.forwp-booking.forwp-booking--calendar .forwp-booking__aside-kicker,
+.elementor-widget .forwp-booking.forwp-booking--calendar .forwp-booking__aside-kicker {
+	color: var(--forwp-booking-muted);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__doctor {
+	background: transparent;
+	color: var(--forwp-booking-text);
+}
+
+.elementor-widget .forwp-booking.forwp-booking--calendar button.forwp-booking__doctor.is-selected {
+	background: var(--forwp-booking-accent-soft);
+}

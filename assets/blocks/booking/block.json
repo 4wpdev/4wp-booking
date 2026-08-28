@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "forwp/booking",
+	"title": "4WP Booking",
+	"category": "widgets",
+	"description": "Appointment calendar: pick a service, date, time, and submit guest details.",
+	"textdomain": "4wp-booking",
+	"icon": "calendar-alt",
+	"keywords": [ "4wp", "booking", "calendar", "appointment" ],
+	"attributes": {
+		"provider": {
+			"type": "string",
+			"default": ""
+		},
+		"template": {
+			"type": "string",
+			"default": ""
+		},
+		"flow": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": true
+	},
+	"editorScript": "file:./editor.js"
+}

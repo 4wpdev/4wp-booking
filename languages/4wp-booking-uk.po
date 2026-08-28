@@ -1,0 +1,912 @@
+# Ukrainian translation for 4WP Booking.
+# Copyright (C) 2026 4wpdev
+# This file is distributed under the same license as the 4WP Booking package.
+msgid ""
+msgstr ""
+"Project-Id-Version: 4WP Booking 0.3.0\n"
+"Report-Msgid-Bugs-To: https://4wp.dev/\n"
+"POT-Creation-Date: 2026-08-27T14:15:57+00:00\n"
+"PO-Revision-Date: 2026-08-27 17:20+0300\n"
+"Last-Translator: 4wpdev\n"
+"Language-Team: Ukrainian\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: 4WP Booking\n"
+"X-Domain: 4wp-booking\n"
+
+#. Plugin Name of the plugin
+#: 4wp-booking.php
+#: src/Admin_Settings.php:64
+#: src/Admin_Settings.php:65
+#: src/Admin_Settings.php:90
+#: src/Elementor_Widget.php:32
+#: assets/blocks/booking/editor.js:33
+#: src/admin/App.js:1223
+msgid "4WP Booking"
+msgstr "4WP Booking"
+
+#. Plugin URI of the plugin
+#: 4wp-booking.php
+msgid "https://github.com/4wpdev/4wp-booking"
+msgstr "https://github.com/4wpdev/4wp-booking"
+
+#. Description of the plugin
+#: 4wp-booking.php
+msgid "Appointment booking with pluggable providers. ClinicCards is live; Google Calendar and Calendly are on the roadmap."
+msgstr "Запис на прийом із підключуваними провайдерами. ClinicCards уже працює; Google Calendar і Calendly — у планах."
+
+#. Author of the plugin
+#: 4wp-booking.php
+msgid "4wpdev"
+msgstr "4wpdev"
+
+#. Author URI of the plugin
+#: 4wp-booking.php
+msgid "https://4wp.dev/"
+msgstr "https://4wp.dev/"
+
+#: src/Admin_Settings.php:376
+msgid "Select a doctor"
+msgstr "Оберіть лікаря"
+
+#: src/Admin_Settings.php:383
+#: src/admin/App.js:947
+msgid "By service"
+msgstr "За послугою"
+
+#: src/Admin_Settings.php:384
+#: src/admin/App.js:955
+msgid "By date"
+msgstr "За датою"
+
+#: src/Admin_Settings.php:385
+#: src/admin/App.js:951
+msgid "By doctor"
+msgstr "За лікарем"
+
+#: src/Admin_Settings.php:386
+#: src/admin/App.js:721
+msgid "Select a service"
+msgstr "Оберіть послугу"
+
+#: src/Admin_Settings.php:387
+#: src/admin/App.js:726
+msgid "Select a date"
+msgstr "Оберіть дату"
+
+#: src/Admin_Settings.php:381
+#: src/admin/App.js:727
+msgid "Select a time"
+msgstr "Оберіть час"
+
+#: src/Admin_Settings.php:382
+#: src/admin/App.js:733
+msgid "Your details"
+msgstr "Ваші дані"
+
+#: src/Admin_Settings.php:383
+#: src/admin/App.js:734
+msgid "First name"
+msgstr "Ім'я"
+
+#: src/Admin_Settings.php:384
+#: src/admin/App.js:735
+msgid "Last name"
+msgstr "Прізвище"
+
+#: src/Admin_Settings.php:385
+#: src/admin/App.js:736
+msgid "Phone"
+msgstr "Телефон"
+
+#: src/Admin_Settings.php:386
+#: src/admin/App.js:737
+#: src/admin/App.js:802
+msgid "Email"
+msgstr "Email"
+
+#: src/Admin_Settings.php:387
+#: src/admin/App.js:738
+msgid "Comment"
+msgstr "Коментар"
+
+#: src/Admin_Settings.php:388
+#: src/admin/App.js:739
+msgid "Confirm booking"
+msgstr "Підтвердити запис"
+
+#: src/Admin_Settings.php:389
+#: src/Providers/ClinicCards_Provider.php:331
+msgid "Your appointment request has been sent."
+msgstr "Ваш запит на прийом надіслано."
+
+#: src/Admin_Settings.php:390
+msgid "Request sent"
+msgstr "Запит надіслано"
+
+#: src/Admin_Settings.php:391
+#: src/admin/App.js:751
+msgid "Back"
+msgstr "Назад"
+
+#: src/Admin_Settings.php:392
+msgid "This field is required."
+msgstr "Це поле обов'язкове."
+
+#: src/Admin_Settings.php:393
+msgid "Enter at least 2 characters."
+msgstr "Введіть щонайменше 2 символи."
+
+#: src/Admin_Settings.php:394
+msgid "Enter a valid phone number."
+msgstr "Введіть коректний номер телефону."
+
+#: src/Admin_Settings.php:395
+msgid "Enter a valid email address."
+msgstr "Введіть коректну email-адресу."
+
+#: src/Admin_Settings.php:403
+msgid "No doctors are available to book."
+msgstr "Немає лікарів для запису."
+
+#: src/Admin_Settings.php:404
+msgid "No services are available to book."
+msgstr "Немає послуг для запису."
+
+#: src/Admin_Settings.php:397
+msgid "No times on this day."
+msgstr "На цей день немає вільних годин."
+
+#: src/Admin_Settings.php:398
+msgid "No free times this month."
+msgstr "Цього місяця немає вільних годин."
+
+#: src/Channels/Placeholder_Channel.php:83
+msgid "This channel is not implemented yet."
+msgstr "Цей канал ще не реалізовано."
+
+#: src/Channels/Telegram_Channel.php:37
+msgid "Telegram"
+msgstr "Telegram"
+
+#: src/Channels/Telegram_Channel.php:71
+msgid "Telegram is not configured."
+msgstr "Telegram не налаштовано."
+
+#: src/Channels/Telegram_Channel.php:104
+#: src/Channels/Telegram_Channel.php:116
+msgid "Telegram request failed."
+msgstr "Запит до Telegram не вдався."
+
+#: src/Channel_Registry.php:38
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: src/Channel_Registry.php:39
+msgid "Viber"
+msgstr "Viber"
+
+#: src/Channel_Registry.php:40
+msgid "Other"
+msgstr "Інше"
+
+#: src/Channel_Registry.php:77
+#: src/Provider_Registry.php:126
+#: src/admin/App.js:224
+msgid "Ready"
+msgstr "Готово"
+
+#: src/Channel_Registry.php:78
+msgid "Needs credentials"
+msgstr "Потрібні облікові дані"
+
+#: src/Channel_Registry.php:80
+#: src/Provider_Registry.php:131
+msgid "Planned (stub)"
+msgstr "У планах (заглушка)"
+
+#: src/Elementor_Widget.php:71
+msgid "Booking"
+msgstr "Запис"
+
+#: src/Elementor_Widget.php:86
+#: src/admin/App.js:399
+msgid "Provider"
+msgstr "Провайдер"
+
+#: src/Elementor_Widget.php:89
+#: src/Elementor_Widget.php:104
+#: src/Elementor_Widget.php:115
+msgid "Default (plugin settings)"
+msgstr "За замовчуванням (налаштування плагіна)"
+
+#: src/Elementor_Widget.php:101
+#: src/admin/App.js:1026
+msgid "Template"
+msgstr "Шаблон"
+
+#: src/Elementor_Widget.php:111
+msgid "Start with"
+msgstr "Починати з"
+
+#: src/Elementor_Widget.php:116
+msgid "Doctor list"
+msgstr "Список лікарів"
+
+#: src/Elementor_Widget.php:117
+msgid "Calendar date"
+msgstr "Дата в календарі"
+
+#: src/Elementor_Widget.php:118
+msgid "Service list"
+msgstr "Список послуг"
+
+#: src/Front_Assets.php:55
+msgid "Loading…"
+msgstr "Завантаження…"
+
+#: src/Front_Assets.php:56
+msgid "Something went wrong. Please try again."
+msgstr "Щось пішло не так. Спробуйте ще раз."
+
+#: src/Front_Assets.php:68
+msgid "Mon"
+msgstr "Пн"
+
+#: src/Front_Assets.php:69
+msgid "Tue"
+msgstr "Вт"
+
+#: src/Front_Assets.php:70
+msgid "Wed"
+msgstr "Ср"
+
+#: src/Front_Assets.php:71
+msgid "Thu"
+msgstr "Чт"
+
+#: src/Front_Assets.php:72
+msgid "Fri"
+msgstr "Пт"
+
+#: src/Front_Assets.php:73
+msgid "Sat"
+msgstr "Сб"
+
+#: src/Front_Assets.php:74
+msgid "Sun"
+msgstr "Нд"
+
+#: src/Notifier.php:61
+msgid "New booking"
+msgstr "Новий запис"
+
+#. translators: %s: doctor name
+#: src/Notifier.php:67
+#, php-format
+msgid "Doctor: %s"
+msgstr "Лікар: %s"
+
+#. translators: %s: YYYY-MM-DD
+#: src/Notifier.php:73
+#, php-format
+msgid "Date: %s"
+msgstr "Дата: %s"
+
+#. translators: %s: HH:MM
+#: src/Notifier.php:78
+#, php-format
+msgid "Time: %s"
+msgstr "Час: %s"
+
+#. translators: %s: guest name
+#: src/Notifier.php:88
+#, php-format
+msgid "Guest: %s"
+msgstr "Гість: %s"
+
+#. translators: %s: phone
+#: src/Notifier.php:96
+#, php-format
+msgid "Phone: %s"
+msgstr "Телефон: %s"
+
+#. translators: %s: email
+#: src/Notifier.php:104
+#, php-format
+msgid "Email: %s"
+msgstr "Email: %s"
+
+#. translators: %s: comment
+#: src/Notifier.php:112
+#, php-format
+msgid "Comment: %s"
+msgstr "Коментар: %s"
+
+#. translators: 1: date, 2: time
+#: src/Notifier.php:137
+#, php-format
+msgid "New booking — %1$s %2$s"
+msgstr "Новий запис — %1$s %2$s"
+
+#: src/Providers/ClinicCards_Provider.php:41
+msgid "ClinicCards"
+msgstr "ClinicCards"
+
+#: src/Providers/ClinicCards_Provider.php:50
+msgid "Create a key in ClinicCards: Settings → Other → Clinic settings → API key."
+msgstr "Створіть ключ у ClinicCards: Налаштування → Інше → Налаштування клініки → API-ключ."
+
+#: src/Providers/ClinicCards_Provider.php:68
+msgid "ClinicCards API documentation"
+msgstr "Документація ClinicCards API"
+
+#: src/Providers/ClinicCards_Provider.php:277
+msgid "Invalid date or time."
+msgstr "Некоректна дата або час."
+
+#: src/Providers/ClinicCards_Provider.php:293
+msgid "That time is no longer available."
+msgstr "Цей час уже зайнятий."
+
+#: src/Providers/ClinicCards_Provider.php:298
+msgid "A phone number is required."
+msgstr "Потрібен номер телефону."
+
+#: src/Providers/ClinicCards_Provider.php:308
+msgid "Online booking"
+msgstr "Онлайн-запис"
+
+#: src/Providers/ClinicCards_Provider.php:364
+msgid "No bookable services or doctors were found."
+msgstr "Не знайдено послуг або лікарів для запису."
+
+#: src/Providers/ClinicCards_Provider.php:448
+msgid "Unknown service."
+msgstr "Невідома послуга."
+
+#: src/Providers/ClinicCards_Provider.php:496
+msgid "First and last name are required."
+msgstr "Ім'я та прізвище обов'язкові."
+
+#: src/Providers/ClinicCards_Provider.php:522
+msgid "Could not create a patient record."
+msgstr "Не вдалося створити картку пацієнта."
+
+#: src/Providers/ClinicCards_Provider.php:593
+msgid "ClinicCards API key is not configured."
+msgstr "API-ключ ClinicCards не налаштовано."
+
+#. translators: %s: transport error
+#: src/Providers/ClinicCards_Provider.php:625
+#, php-format
+msgid "Cannot reach ClinicCards: %s"
+msgstr "Немає зв'язку з ClinicCards: %s"
+
+#: src/Providers/ClinicCards_Provider.php:635
+msgid "ClinicCards returned an unexpected response."
+msgstr "ClinicCards повернув неочікувану відповідь."
+
+#: src/Providers/ClinicCards_Provider.php:640
+msgid "ClinicCards request failed."
+msgstr "Запит до ClinicCards не вдався."
+
+#: src/Providers/Placeholder_Provider.php:88
+msgid "This booking provider is not implemented yet."
+msgstr "Цей провайдер запису ще не реалізовано."
+
+#: src/Provider_Registry.php:43
+msgid "Google Calendar"
+msgstr "Google Calendar"
+
+#: src/Provider_Registry.php:47
+msgid "Calendly"
+msgstr "Calendly"
+
+#: src/Provider_Registry.php:124
+msgid "Not used for API credentials"
+msgstr "Не використовується для API-ключів"
+
+#: src/Provider_Registry.php:128
+#: src/admin/App.js:225
+msgid "Needs API key"
+msgstr "Потрібен API-ключ"
+
+#: src/Rest_Booking.php:219
+#: src/Rest_Booking.php:259
+msgid "Invalid date range."
+msgstr "Некоректний діапазон дат."
+
+#: src/Rest_Booking.php:313
+msgid "Booking could not be submitted."
+msgstr "Не вдалося надіслати запис."
+
+#: src/Rest_Booking.php:317
+msgid "Please wait before submitting another booking."
+msgstr "Зачекайте, перш ніж надіслати ще один запис."
+
+#: src/Rest_Booking.php:386
+msgid "Booking provider is not available."
+msgstr "Провайдер запису недоступний."
+
+#: src/Rest_Booking.php:390
+msgid "Booking is not configured yet."
+msgstr "Запис ще не налаштовано."
+
+#: src/Rest_Settings.php:140
+msgid "This provider is not implemented yet."
+msgstr "Цей провайдер ще не реалізовано."
+
+#: src/Rest_Settings.php:152
+msgid "API key is not configured."
+msgstr "API-ключ не налаштовано."
+
+#: src/Rest_Settings.php:208
+msgid "Invalid credential provider."
+msgstr "Некоректний провайдер облікових даних."
+
+#: src/Templates/Advanced_Template.php:39
+msgid "Advanced"
+msgstr "Розширений"
+
+#: src/Templates/Advanced_Template.php:48
+msgid "Three columns: list, calendar, and times. Guests start from a service, a doctor, or a date."
+msgstr "Три колонки: список, календар і години. Гість починає з послуги, лікаря або дати."
+
+#: src/Templates/Calendar_Template.php:39
+#: src/admin/App.js:153
+msgid "Calendar"
+msgstr "Календар"
+
+#: src/Templates/Calendar_Template.php:48
+msgid "Compact layout with By service / By doctor / By date tabs. Better for a narrow column."
+msgstr "Компактний вигляд із вкладками «За послугою», «За лікарем», «За датою». Краще для вузької колонки."
+
+#: src/views/templates/advanced.php:45
+#: src/views/templates/calendar.php:68
+msgid "Previous month"
+msgstr "Попередній місяць"
+
+#: src/views/templates/advanced.php:48
+#: src/views/templates/calendar.php:72
+msgid "Next month"
+msgstr "Наступний місяць"
+
+#: src/views/templates/partials/guest-form.php:38
+msgid "Website"
+msgstr "Вебсайт"
+
+#: src/admin/App.js:58
+msgid "About this plugin"
+msgstr "Про цей плагін"
+
+#: src/admin/App.js:61
+msgid "4WP Booking adds a native appointment calendar to WordPress. Visitors pick a service, date, and time. API secrets stay on the server."
+msgstr "4WP Booking додає власний календар запису до WordPress. Відвідувач обирає послугу, дату й час. API-секрети залишаються на сервері."
+
+#: src/admin/App.js:67
+msgid "ClinicCards is live. Google Calendar and Calendly are registered as roadmap stubs until those integrations ship."
+msgstr "ClinicCards уже працює. Google Calendar і Calendly зареєстровані як заглушки, доки інтеграції не з'являться."
+
+#: src/admin/App.js:73
+msgid "Pick a provider card below to configure credentials and load a live admin preview."
+msgstr "Оберіть картку провайдера нижче, щоб налаштувати доступ і побачити живий попередній перегляд."
+
+#: src/admin/App.js:111
+msgid "Preview request failed."
+msgstr "Не вдалося завантажити попередній перегляд."
+
+#: src/admin/App.js:134
+msgid "Frontend preview (schematic)"
+msgstr "Попередній перегляд фронтенду (схема)"
+
+#: src/admin/App.js:149
+#: src/admin/App.js:229
+msgid "Services"
+msgstr "Послуги"
+
+#: src/admin/App.js:157
+msgid "Status"
+msgstr "Статус"
+
+#: src/admin/App.js:158
+#: src/admin/App.js:581
+#: src/admin/App.js:845
+msgid "Planned"
+msgstr "У планах"
+
+#: src/admin/App.js:168
+msgid "When this provider is implemented, live values will replace the placeholders."
+msgstr "Коли провайдер буде реалізовано, живі дані замінять заглушки."
+
+#: src/admin/App.js:191
+msgid "Frontend preview (live)"
+msgstr "Попередній перегляд фронтенду (живий)"
+
+#: src/admin/App.js:221
+msgid "Connection"
+msgstr "Підключення"
+
+#: src/admin/App.js:235
+msgid "Sample"
+msgstr "Приклад"
+
+#: src/admin/App.js:289
+#: src/admin/App.js:653
+#: src/admin/StyleTab.js:64
+msgid "Could not load settings."
+msgstr "Не вдалося завантажити налаштування."
+
+#: src/admin/App.js:349
+#: src/admin/App.js:687
+#: src/admin/StyleTab.js:91
+msgid "Could not save settings."
+msgstr "Не вдалося зберегти налаштування."
+
+#: src/admin/App.js:387
+#: src/admin/App.js:784
+#: src/admin/StyleTab.js:119
+msgid "Settings saved."
+msgstr "Налаштування збережено."
+
+#: src/admin/App.js:405
+msgid "← Back to overview"
+msgstr "← До огляду"
+
+#: src/admin/App.js:414
+msgid "API secret is stored in WordPress only; the calendar talks to REST without exposing keys."
+msgstr "API-секрет зберігається лише в WordPress; календар звертається до REST без розкриття ключів."
+
+#: src/admin/App.js:421
+msgid "API key"
+msgstr "API-ключ"
+
+#: src/admin/App.js:451
+msgid "A key is saved. Click the field, paste the new key, then Save. Saving empty keeps the current key."
+msgstr "Ключ збережено. Клікніть поле, вставте новий ключ і натисніть «Зберегти». Порожнє збереження лишає поточний ключ."
+
+#: src/admin/App.js:455
+msgid "Stored server-side only; never exposed to the frontend."
+msgstr "Зберігається лише на сервері; на фронтенд не потрапляє."
+
+#: src/admin/App.js:479
+msgid "Credential actions"
+msgstr "Дії з обліковими даними"
+
+#: src/admin/App.js:496
+msgid "Save"
+msgstr "Зберегти"
+
+#: src/admin/App.js:510
+msgid "Reload"
+msgstr "Оновити"
+
+#: src/admin/App.js:518
+msgid "This provider is listed for architecture and roadmap planning only. No credentials or live requests are available yet."
+msgstr "Цей провайдер у списку лише для архітектури та плану. Облікові дані й живі запити ще недоступні."
+
+#: src/admin/App.js:536
+msgid "Provider registry"
+msgstr "Реєстр провайдерів"
+
+#: src/admin/App.js:539
+msgid "Click a card to configure or preview."
+msgstr "Натисніть картку, щоб налаштувати або переглянути."
+
+#. translators: %s: provider name
+#: src/admin/App.js:555
+#, js-format
+msgid "Open details for %s"
+msgstr "Відкрити деталі: %s"
+
+#: src/admin/App.js:580
+#: src/admin/App.js:844
+msgid "Live"
+msgstr "Працює"
+
+#: src/admin/App.js:707
+msgid "List"
+msgstr "Список"
+
+#: src/admin/App.js:711
+msgid "List heading"
+msgstr "Заголовок списку"
+
+#: src/admin/App.js:715
+msgid "Text under the doctor list"
+msgstr "Текст під списком лікарів"
+
+#: src/admin/App.js:722
+msgid "Tabs & calendar"
+msgstr "Вкладки та календар"
+
+#: src/admin/App.js:718
+msgid "Tab: by service"
+msgstr "Вкладка: за послугою"
+
+#: src/admin/App.js:724
+msgid "Tab: by date"
+msgstr "Вкладка: за датою"
+
+#: src/admin/App.js:725
+msgid "Tab: by doctor"
+msgstr "Вкладка: за лікарем"
+
+#: src/admin/App.js:731
+msgid "Guest form"
+msgstr "Форма гостя"
+
+#: src/admin/App.js:743
+msgid "Messages"
+msgstr "Повідомлення"
+
+#: src/admin/App.js:745
+msgid "Error: required field"
+msgstr "Помилка: обов'язкове поле"
+
+#: src/admin/App.js:746
+msgid "Error: name"
+msgstr "Помилка: ім'я"
+
+#: src/admin/App.js:747
+msgid "Error: phone"
+msgstr "Помилка: телефон"
+
+#: src/admin/App.js:748
+msgid "Error: email"
+msgstr "Помилка: email"
+
+#: src/admin/App.js:749
+msgid "Success message"
+msgstr "Повідомлення про успіх"
+
+#: src/admin/App.js:750
+msgid "Done heading"
+msgstr "Заголовок після відправлення"
+
+#: src/admin/App.js:755
+msgid "Empty states"
+msgstr "Порожні стани"
+
+#: src/admin/App.js:759
+msgid "Empty doctor list"
+msgstr "Порожній список лікарів"
+
+#: src/admin/App.js:759
+msgid "Empty service list"
+msgstr "Порожній список послуг"
+
+#: src/admin/App.js:761
+msgid "No times on this day"
+msgstr "Немає годин на цей день"
+
+#: src/admin/App.js:764
+msgid "No free times this month"
+msgstr "Немає вільних годин цього місяця"
+
+#: src/admin/App.js:791
+msgid "Notifications"
+msgstr "Сповіщення"
+
+#: src/admin/App.js:794
+msgid "Each booking (with date and time) is copied here."
+msgstr "Кожен запис (з датою й часом) дублюється сюди."
+
+#: src/admin/App.js:805
+msgid "Recipients"
+msgstr "Отримувачі"
+
+#: src/admin/App.js:810
+msgid "Leave empty to use the WordPress admin email. Separate addresses with commas."
+msgstr "Залиште порожнім, щоб використати email адміністратора WordPress. Адреси розділяйте комами."
+
+#: src/admin/App.js:819
+msgid "Messengers"
+msgstr "Месенджери"
+
+#: src/admin/App.js:854
+msgid "Bot token"
+msgstr "Токен бота"
+
+#: src/admin/App.js:905
+msgid "From @BotFather. Stored on the server only."
+msgstr "Від @BotFather. Зберігається лише на сервері."
+
+#: src/admin/App.js:911
+msgid "Chat IDs"
+msgstr "ID чатів"
+
+#: src/admin/App.js:918
+msgid "One or more, separated by commas."
+msgstr "Один або кілька, через кому."
+
+#: src/admin/App.js:935
+msgid "Default tab"
+msgstr "Вкладка за замовчуванням"
+
+#: src/admin/App.js:938
+msgid "Guests always see all three tabs. This only chooses which one opens first."
+msgstr "Гість завжди бачить усі три вкладки. Тут лише яка відкривається першою."
+
+#: src/admin/App.js:963
+msgid "Form text"
+msgstr "Тексти форми"
+
+#: src/admin/App.js:966
+msgid "Blank field = plugin default (site language). Text here overrides it."
+msgstr "Порожнє поле = типовий текст плагіна. Текст тут замінює його."
+
+#: src/admin/App.js:1055
+msgid "Default"
+msgstr "За замовчуванням"
+
+#: src/admin/App.js:1073
+msgid "Style settings"
+msgstr "Налаштування стилю"
+
+#: src/admin/App.js:1095
+#: src/admin/App.js:1268
+#: src/admin/StyleTab.js:126
+msgid "Style"
+msgstr "Стиль"
+
+#: src/admin/App.js:1101
+msgid "Primary color, background, text, border, radius, shadow, font."
+msgstr "Основний колір, фон, текст, рамка, радіус, тінь, шрифт."
+
+#: src/admin/App.js:1115
+#: src/admin/App.js:1134
+msgid "Open style settings"
+msgstr "Відкрити налаштування стилю"
+
+#: src/admin/App.js:1125
+msgid "Preview"
+msgstr "Попередній перегляд"
+
+#. translators: %s: template name
+#: src/admin/App.js:1146
+#, js-format
+msgid "New embeds will start as %s."
+msgstr "Нові вставки почнуть як «%s»."
+
+#: src/admin/App.js:1161
+msgid "Save settings"
+msgstr "Зберегти налаштування"
+
+#: src/admin/App.js:1174
+msgid "Overview"
+msgstr "Огляд"
+
+#: src/admin/App.js:1176
+msgid "4WP Booking renders a native calendar. Requests go through WordPress REST. Provider API keys never reach the browser."
+msgstr "4WP Booking показує власний календар. Запити йдуть через WordPress REST. API-ключі провайдера в браузер не потрапляють."
+
+#: src/admin/App.js:1182
+msgid "ClinicCards is the first implemented provider. Google Calendar and Calendly appear as roadmap stubs."
+msgstr "ClinicCards — перший реалізований провайдер. Google Calendar і Calendly показані як заглушки в планах."
+
+#: src/admin/App.js:1187
+msgid "Shortcode"
+msgstr "Шорткод"
+
+#: src/admin/App.js:1195
+msgid "Optional attributes: provider, template (advanced or calendar), flow (staff, date, or service). Example: [forwp_booking template=\"advanced\"]"
+msgstr "Необов'язкові атрибути: provider, template (advanced або calendar), flow (staff, date або service). Приклад: [forwp_booking template=\"advanced\"]"
+
+#: src/admin/App.js:1200
+msgid "Gutenberg and Elementor"
+msgstr "Gutenberg і Elementor"
+
+#: src/admin/App.js:1202
+msgid "Insert the 4WP Booking block, or the Elementor widget if Elementor is active. Elementor is optional."
+msgstr "Вставте блок 4WP Booking або віджет Elementor, якщо Elementor активний. Elementor не обов'язковий."
+
+#: src/admin/App.js:1238
+msgid "Providers"
+msgstr "Провайдери"
+
+#: src/admin/App.js:1253
+msgid "Settings"
+msgstr "Налаштування"
+
+#: src/admin/App.js:1283
+msgid "Documentation"
+msgstr "Документація"
+
+#: src/admin/StyleTab.js:129
+msgid "These colors and fonts apply to both templates. Empty fields use Elementor / theme.json."
+msgstr "Ці кольори й шрифти діють для обох шаблонів. Порожні поля беруться з Elementor / theme.json."
+
+#: src/admin/StyleTab.js:155
+msgid "Save style"
+msgstr "Зберегти стиль"
+
+#: src/admin/TemplatePreview.js:190
+msgid "Empty fields keep the plugin defaults."
+msgstr "Порожні поля залишають типові значення плагіна."
+
+#: src/admin/TemplatePreview.js:200
+msgid "Primary color"
+msgstr "Основний колір"
+
+#: src/admin/TemplatePreview.js:206
+msgid "Background"
+msgstr "Фон"
+
+#: src/admin/TemplatePreview.js:212
+msgid "Text color"
+msgstr "Колір тексту"
+
+#: src/admin/TemplatePreview.js:218
+msgid "Border color"
+msgstr "Колір рамки"
+
+#: src/admin/TemplatePreview.js:224
+msgid "Border radius"
+msgstr "Радіус рамки"
+
+#: src/admin/TemplatePreview.js:233
+msgid "Border size"
+msgstr "Товщина рамки"
+
+#: src/admin/TemplatePreview.js:242
+msgid "Box shadow"
+msgstr "Тінь"
+
+#: src/admin/TemplatePreview.js:245
+msgid "None"
+msgstr "Немає"
+
+#: src/admin/TemplatePreview.js:246
+msgid "Soft"
+msgstr "М'яка"
+
+#: src/admin/TemplatePreview.js:248
+msgid "Medium"
+msgstr "Середня"
+
+#: src/admin/TemplatePreview.js:255
+msgid "Font family"
+msgstr "Шрифт"
+
+#: src/admin/TemplatePreview.js:265
+msgid "Reset to site defaults"
+msgstr "Скинути до типових сайту"
+
+#: src/admin/TemplatePreview.js:273
+msgid "Empty fields use the project: "
+msgstr "Порожні поля беруться з проєкту: "
+
+#: assets/blocks/booking/block.json
+msgctxt "block title"
+msgid "4WP Booking"
+msgstr "4WP Booking"
+
+#: assets/blocks/booking/block.json
+msgctxt "block description"
+msgid "Appointment calendar: pick a service, date, time, and submit guest details."
+msgstr "Календар запису: оберіть послугу, дату, час і залиште дані гостя."
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "4wp"
+msgstr "4wp"
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "booking"
+msgstr "запис"
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "calendar"
+msgstr "календар"
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "appointment"
+msgstr "прийом"
+

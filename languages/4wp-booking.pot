@@ -1,0 +1,882 @@
+# Copyright (C) 2026 4wpdev
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: 4WP Booking 0.3.0\n"
+"Report-Msgid-Bugs-To: https://4wp.dev/\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-27T14:15:57+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: 4wp-booking\n"
+
+#. Plugin Name of the plugin
+#: 4wp-booking.php
+#: src/Admin_Settings.php:64
+#: src/Admin_Settings.php:65
+#: src/Admin_Settings.php:90
+#: src/Elementor_Widget.php:32
+#: assets/blocks/booking/editor.js:33
+#: src/admin/App.js:1223
+msgid "4WP Booking"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: 4wp-booking.php
+msgid "https://github.com/4wpdev/4wp-booking"
+msgstr ""
+
+#. Description of the plugin
+#: 4wp-booking.php
+msgid "Appointment booking with pluggable providers. ClinicCards is live; Google Calendar and Calendly are on the roadmap."
+msgstr ""
+
+#. Author of the plugin
+#: 4wp-booking.php
+msgid "4wpdev"
+msgstr ""
+
+#. Author URI of the plugin
+#: 4wp-booking.php
+msgid "https://4wp.dev/"
+msgstr ""
+
+#: src/Admin_Settings.php:376
+msgid "Select a doctor"
+msgstr ""
+
+#: src/Admin_Settings.php:378
+#: src/admin/App.js:951
+msgid "By date"
+msgstr ""
+
+#: src/Admin_Settings.php:379
+#: src/admin/App.js:947
+msgid "By doctor"
+msgstr ""
+
+#: src/Admin_Settings.php:380
+#: src/admin/App.js:726
+msgid "Select a date"
+msgstr ""
+
+#: src/Admin_Settings.php:381
+#: src/admin/App.js:727
+msgid "Select a time"
+msgstr ""
+
+#: src/Admin_Settings.php:382
+#: src/admin/App.js:733
+msgid "Your details"
+msgstr ""
+
+#: src/Admin_Settings.php:383
+#: src/admin/App.js:734
+msgid "First name"
+msgstr ""
+
+#: src/Admin_Settings.php:384
+#: src/admin/App.js:735
+msgid "Last name"
+msgstr ""
+
+#: src/Admin_Settings.php:385
+#: src/admin/App.js:736
+msgid "Phone"
+msgstr ""
+
+#: src/Admin_Settings.php:386
+#: src/admin/App.js:737
+#: src/admin/App.js:802
+msgid "Email"
+msgstr ""
+
+#: src/Admin_Settings.php:387
+#: src/admin/App.js:738
+msgid "Comment"
+msgstr ""
+
+#: src/Admin_Settings.php:388
+#: src/admin/App.js:739
+msgid "Confirm booking"
+msgstr ""
+
+#: src/Admin_Settings.php:389
+#: src/Providers/ClinicCards_Provider.php:331
+msgid "Your appointment request has been sent."
+msgstr ""
+
+#: src/Admin_Settings.php:390
+msgid "Request sent"
+msgstr ""
+
+#: src/Admin_Settings.php:391
+#: src/admin/App.js:751
+msgid "Back"
+msgstr ""
+
+#: src/Admin_Settings.php:392
+msgid "This field is required."
+msgstr ""
+
+#: src/Admin_Settings.php:393
+msgid "Enter at least 2 characters."
+msgstr ""
+
+#: src/Admin_Settings.php:394
+msgid "Enter a valid phone number."
+msgstr ""
+
+#: src/Admin_Settings.php:395
+msgid "Enter a valid email address."
+msgstr ""
+
+#: src/Admin_Settings.php:396
+msgid "No doctors are available to book."
+msgstr ""
+
+#: src/Admin_Settings.php:397
+msgid "No times on this day."
+msgstr ""
+
+#: src/Admin_Settings.php:398
+msgid "No free times this month."
+msgstr ""
+
+#: src/Channels/Placeholder_Channel.php:83
+msgid "This channel is not implemented yet."
+msgstr ""
+
+#: src/Channels/Telegram_Channel.php:37
+msgid "Telegram"
+msgstr ""
+
+#: src/Channels/Telegram_Channel.php:71
+msgid "Telegram is not configured."
+msgstr ""
+
+#: src/Channels/Telegram_Channel.php:104
+#: src/Channels/Telegram_Channel.php:116
+msgid "Telegram request failed."
+msgstr ""
+
+#: src/Channel_Registry.php:38
+msgid "WhatsApp"
+msgstr ""
+
+#: src/Channel_Registry.php:39
+msgid "Viber"
+msgstr ""
+
+#: src/Channel_Registry.php:40
+msgid "Other"
+msgstr ""
+
+#: src/Channel_Registry.php:77
+#: src/Provider_Registry.php:126
+#: src/admin/App.js:224
+msgid "Ready"
+msgstr ""
+
+#: src/Channel_Registry.php:78
+msgid "Needs credentials"
+msgstr ""
+
+#: src/Channel_Registry.php:80
+#: src/Provider_Registry.php:131
+msgid "Planned (stub)"
+msgstr ""
+
+#: src/Elementor_Widget.php:71
+msgid "Booking"
+msgstr ""
+
+#: src/Elementor_Widget.php:86
+#: src/admin/App.js:399
+msgid "Provider"
+msgstr ""
+
+#: src/Elementor_Widget.php:89
+#: src/Elementor_Widget.php:104
+#: src/Elementor_Widget.php:115
+msgid "Default (plugin settings)"
+msgstr ""
+
+#: src/Elementor_Widget.php:101
+#: src/admin/App.js:1026
+msgid "Template"
+msgstr ""
+
+#: src/Elementor_Widget.php:111
+msgid "Start with"
+msgstr ""
+
+#: src/Elementor_Widget.php:116
+msgid "Doctor list"
+msgstr ""
+
+#: src/Elementor_Widget.php:117
+msgid "Calendar date"
+msgstr ""
+
+#: src/Front_Assets.php:55
+msgid "Loading…"
+msgstr ""
+
+#: src/Front_Assets.php:56
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: src/Front_Assets.php:68
+msgid "Mon"
+msgstr ""
+
+#: src/Front_Assets.php:69
+msgid "Tue"
+msgstr ""
+
+#: src/Front_Assets.php:70
+msgid "Wed"
+msgstr ""
+
+#: src/Front_Assets.php:71
+msgid "Thu"
+msgstr ""
+
+#: src/Front_Assets.php:72
+msgid "Fri"
+msgstr ""
+
+#: src/Front_Assets.php:73
+msgid "Sat"
+msgstr ""
+
+#: src/Front_Assets.php:74
+msgid "Sun"
+msgstr ""
+
+#: src/Notifier.php:61
+msgid "New booking"
+msgstr ""
+
+#. translators: %s: doctor name
+#: src/Notifier.php:67
+#, php-format
+msgid "Doctor: %s"
+msgstr ""
+
+#. translators: %s: YYYY-MM-DD
+#: src/Notifier.php:73
+#, php-format
+msgid "Date: %s"
+msgstr ""
+
+#. translators: %s: HH:MM
+#: src/Notifier.php:78
+#, php-format
+msgid "Time: %s"
+msgstr ""
+
+#. translators: %s: guest name
+#: src/Notifier.php:88
+#, php-format
+msgid "Guest: %s"
+msgstr ""
+
+#. translators: %s: phone
+#: src/Notifier.php:96
+#, php-format
+msgid "Phone: %s"
+msgstr ""
+
+#. translators: %s: email
+#: src/Notifier.php:104
+#, php-format
+msgid "Email: %s"
+msgstr ""
+
+#. translators: %s: comment
+#: src/Notifier.php:112
+#, php-format
+msgid "Comment: %s"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: src/Notifier.php:137
+#, php-format
+msgid "New booking — %1$s %2$s"
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:41
+msgid "ClinicCards"
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:50
+msgid "Create a key in ClinicCards: Settings → Other → Clinic settings → API key."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:68
+msgid "ClinicCards API documentation"
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:277
+msgid "Invalid date or time."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:293
+msgid "That time is no longer available."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:298
+msgid "A phone number is required."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:308
+msgid "Online booking"
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:364
+msgid "No bookable services or doctors were found."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:448
+msgid "Unknown service."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:496
+msgid "First and last name are required."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:522
+msgid "Could not create a patient record."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:593
+msgid "ClinicCards API key is not configured."
+msgstr ""
+
+#. translators: %s: transport error
+#: src/Providers/ClinicCards_Provider.php:625
+#, php-format
+msgid "Cannot reach ClinicCards: %s"
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:635
+msgid "ClinicCards returned an unexpected response."
+msgstr ""
+
+#: src/Providers/ClinicCards_Provider.php:640
+msgid "ClinicCards request failed."
+msgstr ""
+
+#: src/Providers/Placeholder_Provider.php:88
+msgid "This booking provider is not implemented yet."
+msgstr ""
+
+#: src/Provider_Registry.php:43
+msgid "Google Calendar"
+msgstr ""
+
+#: src/Provider_Registry.php:47
+msgid "Calendly"
+msgstr ""
+
+#: src/Provider_Registry.php:124
+msgid "Not used for API credentials"
+msgstr ""
+
+#: src/Provider_Registry.php:128
+#: src/admin/App.js:225
+msgid "Needs API key"
+msgstr ""
+
+#: src/Rest_Booking.php:219
+#: src/Rest_Booking.php:259
+msgid "Invalid date range."
+msgstr ""
+
+#: src/Rest_Booking.php:313
+msgid "Booking could not be submitted."
+msgstr ""
+
+#: src/Rest_Booking.php:317
+msgid "Please wait before submitting another booking."
+msgstr ""
+
+#: src/Rest_Booking.php:386
+msgid "Booking provider is not available."
+msgstr ""
+
+#: src/Rest_Booking.php:390
+msgid "Booking is not configured yet."
+msgstr ""
+
+#: src/Rest_Settings.php:140
+msgid "This provider is not implemented yet."
+msgstr ""
+
+#: src/Rest_Settings.php:152
+msgid "API key is not configured."
+msgstr ""
+
+#: src/Rest_Settings.php:208
+msgid "Invalid credential provider."
+msgstr ""
+
+#: src/Templates/Advanced_Template.php:39
+msgid "Advanced"
+msgstr ""
+
+#: src/Templates/Advanced_Template.php:48
+msgid "Three columns: doctor, calendar, and times. One doctor is selected by default; guests can switch."
+msgstr ""
+
+#: src/Templates/Calendar_Template.php:39
+#: src/admin/App.js:153
+msgid "Calendar"
+msgstr ""
+
+#: src/Templates/Calendar_Template.php:48
+msgid "Compact layout with By doctor / By date tabs. Better for a narrow column."
+msgstr ""
+
+#: src/views/templates/advanced.php:45
+#: src/views/templates/calendar.php:68
+msgid "Previous month"
+msgstr ""
+
+#: src/views/templates/advanced.php:48
+#: src/views/templates/calendar.php:72
+msgid "Next month"
+msgstr ""
+
+#: src/views/templates/partials/guest-form.php:38
+msgid "Website"
+msgstr ""
+
+#: src/admin/App.js:58
+msgid "About this plugin"
+msgstr ""
+
+#: src/admin/App.js:61
+msgid "4WP Booking adds a native appointment calendar to WordPress. Visitors pick a service, date, and time. API secrets stay on the server."
+msgstr ""
+
+#: src/admin/App.js:67
+msgid "ClinicCards is live. Google Calendar and Calendly are registered as roadmap stubs until those integrations ship."
+msgstr ""
+
+#: src/admin/App.js:73
+msgid "Pick a provider card below to configure credentials and load a live admin preview."
+msgstr ""
+
+#: src/admin/App.js:111
+msgid "Preview request failed."
+msgstr ""
+
+#: src/admin/App.js:134
+msgid "Frontend preview (schematic)"
+msgstr ""
+
+#: src/admin/App.js:149
+#: src/admin/App.js:229
+msgid "Services"
+msgstr ""
+
+#: src/admin/App.js:157
+msgid "Status"
+msgstr ""
+
+#: src/admin/App.js:158
+#: src/admin/App.js:581
+#: src/admin/App.js:845
+msgid "Planned"
+msgstr ""
+
+#: src/admin/App.js:168
+msgid "When this provider is implemented, live values will replace the placeholders."
+msgstr ""
+
+#: src/admin/App.js:191
+msgid "Frontend preview (live)"
+msgstr ""
+
+#: src/admin/App.js:221
+msgid "Connection"
+msgstr ""
+
+#: src/admin/App.js:235
+msgid "Sample"
+msgstr ""
+
+#: src/admin/App.js:289
+#: src/admin/App.js:653
+#: src/admin/StyleTab.js:64
+msgid "Could not load settings."
+msgstr ""
+
+#: src/admin/App.js:349
+#: src/admin/App.js:687
+#: src/admin/StyleTab.js:91
+msgid "Could not save settings."
+msgstr ""
+
+#: src/admin/App.js:387
+#: src/admin/App.js:784
+#: src/admin/StyleTab.js:119
+msgid "Settings saved."
+msgstr ""
+
+#: src/admin/App.js:405
+msgid "← Back to overview"
+msgstr ""
+
+#: src/admin/App.js:414
+msgid "API secret is stored in WordPress only; the calendar talks to REST without exposing keys."
+msgstr ""
+
+#: src/admin/App.js:421
+msgid "API key"
+msgstr ""
+
+#: src/admin/App.js:451
+msgid "A key is saved. Focus the field to replace it, or leave blank on save to clear."
+msgstr ""
+
+#: src/admin/App.js:455
+msgid "Stored server-side only; never exposed to the frontend."
+msgstr ""
+
+#: src/admin/App.js:479
+msgid "Credential actions"
+msgstr ""
+
+#: src/admin/App.js:496
+msgid "Save"
+msgstr ""
+
+#: src/admin/App.js:510
+msgid "Reload"
+msgstr ""
+
+#: src/admin/App.js:518
+msgid "This provider is listed for architecture and roadmap planning only. No credentials or live requests are available yet."
+msgstr ""
+
+#: src/admin/App.js:536
+msgid "Provider registry"
+msgstr ""
+
+#: src/admin/App.js:539
+msgid "Click a card to configure or preview."
+msgstr ""
+
+#. translators: %s: provider name
+#: src/admin/App.js:555
+#, js-format
+msgid "Open details for %s"
+msgstr ""
+
+#: src/admin/App.js:580
+#: src/admin/App.js:844
+msgid "Live"
+msgstr ""
+
+#: src/admin/App.js:707
+msgid "List"
+msgstr ""
+
+#: src/admin/App.js:711
+msgid "List heading"
+msgstr ""
+
+#: src/admin/App.js:715
+msgid "Text under the doctor list"
+msgstr ""
+
+#: src/admin/App.js:722
+msgid "Tabs & calendar"
+msgstr ""
+
+#: src/admin/App.js:724
+msgid "Tab: by date"
+msgstr ""
+
+#: src/admin/App.js:725
+msgid "Tab: by doctor"
+msgstr ""
+
+#: src/admin/App.js:731
+msgid "Guest form"
+msgstr ""
+
+#: src/admin/App.js:743
+msgid "Messages"
+msgstr ""
+
+#: src/admin/App.js:745
+msgid "Error: required field"
+msgstr ""
+
+#: src/admin/App.js:746
+msgid "Error: name"
+msgstr ""
+
+#: src/admin/App.js:747
+msgid "Error: phone"
+msgstr ""
+
+#: src/admin/App.js:748
+msgid "Error: email"
+msgstr ""
+
+#: src/admin/App.js:749
+msgid "Success message"
+msgstr ""
+
+#: src/admin/App.js:750
+msgid "Done heading"
+msgstr ""
+
+#: src/admin/App.js:755
+msgid "Empty states"
+msgstr ""
+
+#: src/admin/App.js:759
+msgid "Empty doctor list"
+msgstr ""
+
+#: src/admin/App.js:761
+msgid "No times on this day"
+msgstr ""
+
+#: src/admin/App.js:764
+msgid "No free times this month"
+msgstr ""
+
+#: src/admin/App.js:791
+msgid "Notifications"
+msgstr ""
+
+#: src/admin/App.js:794
+msgid "Each booking (with date and time) is copied here."
+msgstr ""
+
+#: src/admin/App.js:805
+msgid "Recipients"
+msgstr ""
+
+#: src/admin/App.js:810
+msgid "Leave empty to use the WordPress admin email. Separate addresses with commas."
+msgstr ""
+
+#: src/admin/App.js:819
+msgid "Messengers"
+msgstr ""
+
+#: src/admin/App.js:854
+msgid "Bot token"
+msgstr ""
+
+#: src/admin/App.js:905
+msgid "From @BotFather. Stored on the server only."
+msgstr ""
+
+#: src/admin/App.js:911
+msgid "Chat IDs"
+msgstr ""
+
+#: src/admin/App.js:918
+msgid "One or more, separated by commas."
+msgstr ""
+
+#: src/admin/App.js:935
+msgid "Default tab"
+msgstr ""
+
+#: src/admin/App.js:938
+msgid "Guests always see both tabs. This only chooses which one opens first."
+msgstr ""
+
+#: src/admin/App.js:963
+msgid "Form text"
+msgstr ""
+
+#: src/admin/App.js:966
+msgid "Blank field = plugin default (site language). Text here overrides it."
+msgstr ""
+
+#: src/admin/App.js:1055
+msgid "Default"
+msgstr ""
+
+#: src/admin/App.js:1073
+msgid "Style settings"
+msgstr ""
+
+#: src/admin/App.js:1095
+#: src/admin/App.js:1268
+#: src/admin/StyleTab.js:126
+msgid "Style"
+msgstr ""
+
+#: src/admin/App.js:1101
+msgid "Primary color, background, text, border, radius, shadow, font."
+msgstr ""
+
+#: src/admin/App.js:1115
+#: src/admin/App.js:1134
+msgid "Open style settings"
+msgstr ""
+
+#: src/admin/App.js:1125
+msgid "Preview"
+msgstr ""
+
+#. translators: %s: template name
+#: src/admin/App.js:1146
+#, js-format
+msgid "New embeds will start as %s."
+msgstr ""
+
+#: src/admin/App.js:1161
+msgid "Save settings"
+msgstr ""
+
+#: src/admin/App.js:1174
+msgid "Overview"
+msgstr ""
+
+#: src/admin/App.js:1176
+msgid "4WP Booking renders a native calendar. Requests go through WordPress REST. Provider API keys never reach the browser."
+msgstr ""
+
+#: src/admin/App.js:1182
+msgid "ClinicCards is the first implemented provider. Google Calendar and Calendly appear as roadmap stubs."
+msgstr ""
+
+#: src/admin/App.js:1187
+msgid "Shortcode"
+msgstr ""
+
+#: src/admin/App.js:1195
+msgid "Optional attributes: provider, template (advanced or calendar), flow (staff or date). Example: [forwp_booking template=\"advanced\"]"
+msgstr ""
+
+#: src/admin/App.js:1200
+msgid "Gutenberg and Elementor"
+msgstr ""
+
+#: src/admin/App.js:1202
+msgid "Insert the 4WP Booking block, or the Elementor widget if Elementor is active. Elementor is optional."
+msgstr ""
+
+#: src/admin/App.js:1238
+msgid "Providers"
+msgstr ""
+
+#: src/admin/App.js:1253
+msgid "Settings"
+msgstr ""
+
+#: src/admin/App.js:1283
+msgid "Documentation"
+msgstr ""
+
+#: src/admin/StyleTab.js:129
+msgid "These colors and fonts apply to both templates. Empty fields use Elementor / theme.json."
+msgstr ""
+
+#: src/admin/StyleTab.js:155
+msgid "Save style"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:190
+msgid "Empty fields keep the plugin defaults."
+msgstr ""
+
+#: src/admin/TemplatePreview.js:200
+msgid "Primary color"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:206
+msgid "Background"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:212
+msgid "Text color"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:218
+msgid "Border color"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:224
+msgid "Border radius"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:233
+msgid "Border size"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:242
+msgid "Box shadow"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:245
+msgid "None"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:246
+msgid "Soft"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:248
+msgid "Medium"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:255
+msgid "Font family"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:265
+msgid "Reset to site defaults"
+msgstr ""
+
+#: src/admin/TemplatePreview.js:273
+msgid "Empty fields use the project: "
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block title"
+msgid "4WP Booking"
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block description"
+msgid "Appointment calendar: pick a service, date, time, and submit guest details."
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "4wp"
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "booking"
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "calendar"
+msgstr ""
+
+#: assets/blocks/booking/block.json
+msgctxt "block keyword"
+msgid "appointment"
+msgstr ""
