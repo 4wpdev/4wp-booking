@@ -39,7 +39,7 @@ final class Front_Assets {
 			(string) ( file_exists( $js ) ? filemtime( $js ) : FORWP_BOOKING_VERSION ),
 			true
 		);
-		$copy = Admin_Settings::instance()->get_copy();
+		$copy   = Admin_Settings::instance()->get_copy();
 		$inline = Appearance::inline_css();
 		if ( '' !== $inline ) {
 			wp_add_inline_style( 'forwp-booking-calendar', $inline );

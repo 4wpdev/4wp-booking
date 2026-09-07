@@ -96,17 +96,17 @@ final class Rest_Booking {
 					'callback'            => array( self::class, 'get_availability' ),
 					'permission_callback' => '__return_true',
 					'args'                => array(
-						'provider' => array(
+						'provider'   => array(
 							'type'              => 'string',
 							'required'          => false,
 							'sanitize_callback' => 'sanitize_key',
 						),
-						'from'     => array(
+						'from'       => array(
 							'type'              => 'string',
 							'required'          => true,
 							'sanitize_callback' => 'sanitize_text_field',
 						),
-						'to'       => array(
+						'to'         => array(
 							'type'              => 'string',
 							'required'          => true,
 							'sanitize_callback' => 'sanitize_text_field',
@@ -365,8 +365,8 @@ final class Rest_Booking {
 	 * Fields for email / messenger copies of the booking.
 	 *
 	 * @param \ForWP\Booking\Contracts\Booking_Provider_Interface $provider Provider.
-	 * @param WP_REST_Request                                      $request  Request.
-	 * @param array<string, mixed>                                 $result   Provider result.
+	 * @param WP_REST_Request                                     $request  Request.
+	 * @param array<string, mixed>                                $result   Provider result.
 	 * @return array<string, string>
 	 */
 	private static function booking_notice_payload( $provider, WP_REST_Request $request, array $result ): array {

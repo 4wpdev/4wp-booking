@@ -112,7 +112,7 @@ final class Elementor_Widget extends \Elementor\Widget_Base {
 				'type'    => \Elementor\Controls_Manager::SELECT,
 				'default' => '',
 				'options' => array(
-					''      => __( 'Default (plugin settings)', '4wp-booking' ),
+					''        => __( 'Default (plugin settings)', '4wp-booking' ),
 					'staff'   => __( 'Doctor list', '4wp-booking' ),
 					'date'    => __( 'Calendar date', '4wp-booking' ),
 					'service' => __( 'Service list', '4wp-booking' ),

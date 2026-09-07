@@ -118,7 +118,7 @@ final class Notifier {
 	}
 
 	/**
-	 * wp_mail to configured addresses (admin email if the field is empty).
+	 * Send email via wp_mail to configured addresses (admin email if empty).
 	 *
 	 * @param array<string, mixed> $booking Payload.
 	 * @param string               $text    Body.

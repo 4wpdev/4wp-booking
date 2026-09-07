@@ -17,16 +17,22 @@ defined( 'ABSPATH' ) || exit;
 final class Placeholder_Channel implements Channel_Provider_Interface {
 
 	/**
+	 * Channel slug.
+	 *
 	 * @var string
 	 */
 	private $slug;
 
 	/**
+	 * Channel label.
+	 *
 	 * @var string
 	 */
 	private $label;
 
 	/**
+	 * Constructor.
+	 *
 	 * @param string $slug  Stable slug.
 	 * @param string $label Admin label.
 	 */

@@ -17,6 +17,7 @@ docs/
 README.md
 .wordpress-org/
 scripts/
+src/admin/
 
 tests/
 phpunit.xml

@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 final class Channel_Registry {
 
 	/**
+	 * Registered channels keyed by slug.
+	 *
 	 * @var array<string, Channel_Provider_Interface>|null
 	 */
 	private static $channels = null;
@@ -45,7 +47,7 @@ final class Channel_Registry {
 		 *
 		 * @param array<string, Channel_Provider_Interface> $map Channels.
 		 */
-		$filtered        = apply_filters( 'forwp_booking_channels', $map );
+		$filtered       = apply_filters( 'forwp_booking_channels', $map );
 		self::$channels = is_array( $filtered ) ? $filtered : $map;
 
 		return self::$channels;

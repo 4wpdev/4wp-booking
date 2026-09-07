@@ -7,6 +7,7 @@
 
 namespace ForWP\Booking;
 
+use ForWP\Booking\Forms\Form_Source_Registry;
 use ForWP\Booking\Providers\ClinicCards_Provider;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -114,6 +115,8 @@ final class Rest_Settings {
 				'telegram_token_configured' => '' !== $telegram_token,
 				'telegram_token_length'     => strlen( $telegram_token ),
 				'telegram_chat_ids'         => Admin_Settings::instance()->get_channel_targets_raw( 'telegram' ),
+				'form_telegram'             => Admin_Settings::instance()->get_form_telegram_settings(),
+				'form_sources'              => Form_Source_Registry::get_admin_rows(),
 				'appearance'                => Appearance::get_overrides(),
 				'appearance_defaults'       => Appearance::site_defaults(),
 				'appearance_sources'        => Appearance::sources(),
@@ -263,6 +266,10 @@ final class Rest_Settings {
 		if ( array_key_exists( 'telegram_chat_ids', $params ) ) {
 			$ids = is_string( $params['telegram_chat_ids'] ) ? $params['telegram_chat_ids'] : '';
 			Admin_Settings::instance()->set_channel_targets( 'telegram', $ids );
+		}
+
+		if ( array_key_exists( 'form_telegram', $params ) && is_array( $params['form_telegram'] ) ) {
+			Admin_Settings::instance()->set_form_telegram_settings( $params['form_telegram'] );
 		}
 
 		if ( array_key_exists( 'appearance', $params ) && is_array( $params['appearance'] ) ) {

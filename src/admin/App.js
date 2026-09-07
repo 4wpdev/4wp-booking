@@ -1,5 +1,5 @@
 /**
- * Tabbed admin UI: Providers + Settings + Documentation (4WP Weather/Drive shell).
+ * Tabbed admin UI: Providers + Notifications + Settings + Style + Documentation.
  */
 import { __, sprintf } from '@wordpress/i18n';
 import { useState, useEffect, useCallback } from '@wordpress/element';
@@ -21,6 +21,7 @@ import {
 	emptyAppearance,
 } from './TemplatePreview';
 import StyleTab from './StyleTab';
+import NotificationsTab from './NotificationsTab';
 
 const SETTINGS_PATH = '/forwp-booking/v1/settings';
 const PREVIEW_PATH = '/forwp-booking/v1/preview';
@@ -601,15 +602,6 @@ function SettingsTab( { onOpenStyle } ) {
 	const [ bookingFlow, setBookingFlow ] = useState( 'staff' );
 	const [ copy, setCopy ] = useState( {} );
 	const [ copyDefaults, setCopyDefaults ] = useState( {} );
-	const [ notifyEmails, setNotifyEmails ] = useState( '' );
-	const [ adminEmail, setAdminEmail ] = useState( '' );
-	const [ channels, setChannels ] = useState( [] );
-	const [ telegramChatIds, setTelegramChatIds ] = useState( '' );
-	const [ telegramTokenInput, setTelegramTokenInput ] = useState( '' );
-	const [ telegramTokenConfigured, setTelegramTokenConfigured ] =
-		useState( false );
-	const [ telegramTokenLength, setTelegramTokenLength ] = useState( 0 );
-	const [ telegramTokenTouched, setTelegramTokenTouched ] = useState( false );
 	const [ appearance, setAppearance ] = useState( emptyAppearance() );
 	const [ appearanceDefaults, setAppearanceDefaults ] = useState( {} );
 
@@ -619,19 +611,6 @@ function SettingsTab( { onOpenStyle } ) {
 		setBookingFlow( data.booking_flow || 'staff' );
 		setCopy( data.copy || {} );
 		setCopyDefaults( data.copy_defaults || {} );
-		setNotifyEmails( data.notify_emails || '' );
-		setAdminEmail( data.admin_email || '' );
-		setChannels( data.channels || [] );
-		setTelegramChatIds( data.telegram_chat_ids || '' );
-		setTelegramTokenConfigured( !! data.telegram_token_configured );
-		setTelegramTokenLength(
-			typeof data.telegram_token_length === 'number' &&
-				data.telegram_token_length >= 0
-				? data.telegram_token_length
-				: 0
-		);
-		setTelegramTokenInput( '' );
-		setTelegramTokenTouched( false );
 		setAppearance( { ...emptyAppearance(), ...( data.appearance || {} ) } );
 		setAppearanceDefaults( data.appearance_defaults || {} );
 	};
@@ -667,11 +646,6 @@ function SettingsTab( { onOpenStyle } ) {
 					default_template: selectedTemplate,
 					booking_flow: bookingFlow,
 					copy,
-					notify_emails: notifyEmails,
-					telegram_chat_ids: telegramChatIds,
-					...( telegramTokenTouched
-						? { telegram_token: telegramTokenInput }
-						: {} ),
 				},
 			} );
 			applySettings( data );
@@ -784,150 +758,6 @@ function SettingsTab( { onOpenStyle } ) {
 					{ __( 'Settings saved.', '4wp-booking' ) }
 				</Notice>
 			) }
-
-			<Card className="forwp-booking-settings-intro forwp-booking-notify">
-				<CardBody>
-					<h3 className="forwp-booking-admin-section-title">
-						{ __( 'Notifications', '4wp-booking' ) }
-					</h3>
-					<p className="forwp-booking-admin-muted">
-						{ __(
-							'Each booking (with date and time) is copied here.',
-							'4wp-booking'
-						) }
-					</p>
-
-					<div className="forwp-booking-notify__block">
-						<h4 className="forwp-booking-notify__label">
-							{ __( 'Email', '4wp-booking' ) }
-						</h4>
-						<TextControl
-							label={ __( 'Recipients', '4wp-booking' ) }
-							hideLabelFromVision
-							value={ notifyEmails }
-							placeholder={ adminEmail }
-							onChange={ setNotifyEmails }
-							help={ __(
-								'Leave empty to use the WordPress admin email. Separate addresses with commas.',
-								'4wp-booking'
-							) }
-						/>
-					</div>
-
-					<div className="forwp-booking-notify__block">
-						<h4 className="forwp-booking-notify__label">
-							{ __( 'Messengers', '4wp-booking' ) }
-						</h4>
-						<ul className="forwp-booking-notify__channels">
-							{ channels.map( ( row ) => (
-								<li
-									key={ row.slug }
-									className={
-										'forwp-booking-notify__channel' +
-										( row.implemented
-											? ' is-live'
-											: ' is-planned' )
-									}
-								>
-									<div className="forwp-booking-notify__channel-head">
-										<span className="forwp-booking-notify__channel-name">
-											{ row.label }
-										</span>
-										<span
-											className={
-												row.implemented
-													? 'forwp-booking-badge forwp-booking-badge--live'
-													: 'forwp-booking-badge forwp-booking-badge--planned'
-											}
-										>
-											{ row.implemented
-												? __( 'Live', '4wp-booking' )
-												: __( 'Planned', '4wp-booking' ) }
-										</span>
-										<span className="forwp-booking-notify__channel-status">
-											{ row.status }
-										</span>
-									</div>
-									{ row.slug === 'telegram' && (
-										<div className="forwp-booking-notify__channel-fields">
-											<TextControl
-												label={ __(
-													'Bot token',
-													'4wp-booking'
-												) }
-												type="password"
-												autoComplete="off"
-												readOnly={
-													telegramTokenConfigured &&
-													! telegramTokenTouched &&
-													telegramTokenLength > 0
-												}
-												value={
-													telegramTokenConfigured &&
-													! telegramTokenTouched &&
-													telegramTokenLength > 0
-														? maskForSavedApiKey(
-																telegramTokenLength
-														  )
-														: telegramTokenInput
-												}
-												onFocus={ () => {
-													if (
-														telegramTokenConfigured &&
-														! telegramTokenTouched
-													) {
-														setTelegramTokenTouched(
-															true
-														);
-														setTelegramTokenInput(
-															''
-														);
-													}
-												} }
-												onBlur={ () => {
-													if (
-														telegramTokenConfigured &&
-														telegramTokenTouched &&
-														telegramTokenInput ===
-															''
-													) {
-														setTelegramTokenTouched(
-															false
-														);
-													}
-												} }
-												onChange={ ( v ) => {
-													setTelegramTokenInput( v );
-													setTelegramTokenTouched(
-														true
-													);
-												} }
-												help={ __(
-													'From @BotFather. Stored on the server only.',
-													'4wp-booking'
-												) }
-											/>
-											<TextControl
-												label={ __(
-													'Chat IDs',
-													'4wp-booking'
-												) }
-												value={ telegramChatIds }
-												placeholder="-100…"
-												onChange={ setTelegramChatIds }
-												help={ __(
-													'One or more, separated by commas.',
-													'4wp-booking'
-												) }
-											/>
-										</div>
-									) }
-								</li>
-							) ) }
-						</ul>
-					</div>
-				</CardBody>
-			</Card>
 
 			<Card className="forwp-booking-settings-intro">
 				<CardBody>
@@ -1226,36 +1056,51 @@ export default function App() {
 					role="tablist"
 					aria-label={ __( '4WP Booking', '4wp-booking' ) }
 				>
-					<button
-						type="button"
-						role="tab"
-						id="forwp-booking-tab-providers"
-						className={
-							'components-button components-tab-panel__tabs-item forwp-booking-tab-providers' +
-							( activeTab === 'providers' ? ' is-active' : '' )
-						}
-						aria-selected={ activeTab === 'providers' }
-						aria-controls="forwp-booking-panel-providers"
-						tabIndex={ activeTab === 'providers' ? 0 : -1 }
-						onClick={ () => setActiveTab( 'providers' ) }
-					>
-						{ __( 'Providers', '4wp-booking' ) }
-					</button>
-					<button
-						type="button"
-						role="tab"
-						id="forwp-booking-tab-settings"
-						className={
-							'components-button components-tab-panel__tabs-item forwp-booking-tab-settings' +
-							( activeTab === 'settings' ? ' is-active' : '' )
-						}
-						aria-selected={ activeTab === 'settings' }
-						aria-controls="forwp-booking-panel-settings"
-						tabIndex={ activeTab === 'settings' ? 0 : -1 }
-						onClick={ () => setActiveTab( 'settings' ) }
-					>
-						{ __( 'Settings', '4wp-booking' ) }
-					</button>
+						<button
+							type="button"
+							role="tab"
+							id="forwp-booking-tab-providers"
+							className={
+								'components-button components-tab-panel__tabs-item forwp-booking-tab-providers' +
+								( activeTab === 'providers' ? ' is-active' : '' )
+							}
+							aria-selected={ activeTab === 'providers' }
+							aria-controls="forwp-booking-panel-providers"
+							tabIndex={ activeTab === 'providers' ? 0 : -1 }
+							onClick={ () => setActiveTab( 'providers' ) }
+						>
+							{ __( 'Providers', '4wp-booking' ) }
+						</button>
+						<button
+							type="button"
+							role="tab"
+							id="forwp-booking-tab-notifications"
+							className={
+								'components-button components-tab-panel__tabs-item forwp-booking-tab-notifications' +
+								( activeTab === 'notifications' ? ' is-active' : '' )
+							}
+							aria-selected={ activeTab === 'notifications' }
+							aria-controls="forwp-booking-panel-notifications"
+							tabIndex={ activeTab === 'notifications' ? 0 : -1 }
+							onClick={ () => setActiveTab( 'notifications' ) }
+						>
+							{ __( 'Notifications', '4wp-booking' ) }
+						</button>
+						<button
+							type="button"
+							role="tab"
+							id="forwp-booking-tab-settings"
+							className={
+								'components-button components-tab-panel__tabs-item forwp-booking-tab-settings' +
+								( activeTab === 'settings' ? ' is-active' : '' )
+							}
+							aria-selected={ activeTab === 'settings' }
+							aria-controls="forwp-booking-panel-settings"
+							tabIndex={ activeTab === 'settings' ? 0 : -1 }
+							onClick={ () => setActiveTab( 'settings' ) }
+						>
+							{ __( 'Settings', '4wp-booking' ) }
+						</button>
 					<button
 						type="button"
 						role="tab"
@@ -1295,6 +1140,15 @@ export default function App() {
 					hidden={ activeTab !== 'providers' }
 				>
 					<ProvidersTab />
+				</div>
+				<div
+					id="forwp-booking-panel-notifications"
+					role="tabpanel"
+					aria-labelledby="forwp-booking-tab-notifications"
+					className="components-tab-panel__tab-content"
+					hidden={ activeTab !== 'notifications' }
+				>
+					<NotificationsTab />
 				</div>
 				<div
 					id="forwp-booking-panel-settings"

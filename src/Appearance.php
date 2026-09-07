@@ -26,6 +26,8 @@ final class Appearance {
 	);
 
 	/**
+	 * Cached appearance sources by context key.
+	 *
 	 * @var array<string, array<string, string>>
 	 */
 	private static $source_cache = array();
@@ -38,13 +40,13 @@ final class Appearance {
 	public static function plugin_fallbacks(): array {
 		return array(
 			'border_radius' => '20',
-			'box_shadow'     => 'soft',
-			'border_width'   => '1',
-			'border_color'   => '#e5e7eb',
-			'bg_color'       => '#ffffff',
-			'text_color'     => '#111827',
-			'font_family'    => 'inherit',
-			'primary_color'  => '#111827',
+			'box_shadow'    => 'soft',
+			'border_width'  => '1',
+			'border_color'  => '#e5e7eb',
+			'bg_color'      => '#ffffff',
+			'text_color'    => '#111827',
+			'font_family'   => 'inherit',
+			'primary_color' => '#111827',
 		);
 	}
 
@@ -127,8 +129,8 @@ final class Appearance {
 	 * @return void
 	 */
 	public static function set_overrides( array $raw ): void {
-		$options                = Admin_Settings::instance()->get_options();
-		$options['appearance']  = self::sanitize( $raw );
+		$options               = Admin_Settings::instance()->get_options();
+		$options['appearance'] = self::sanitize( $raw );
 		Admin_Settings::instance()->save_options( $options );
 	}
 
@@ -198,8 +200,8 @@ final class Appearance {
 		$shadow  = isset( $shadows[ $shadow ] ) ? $shadows[ $shadow ] : $shadows['soft'];
 
 		$radius = isset( $resolved['border_radius'] ) ? (string) $resolved['border_radius'] : '20';
-		$width   = isset( $resolved['border_width'] ) ? (string) $resolved['border_width'] : '1';
-		$font    = isset( $resolved['font_family'] ) ? (string) $resolved['font_family'] : 'inherit';
+		$width  = isset( $resolved['border_width'] ) ? (string) $resolved['border_width'] : '1';
+		$font   = isset( $resolved['font_family'] ) ? (string) $resolved['font_family'] : 'inherit';
 		if ( 'inherit' !== $font && false === strpos( $font, ',' ) && false === strpos( $font, ' ' ) ) {
 			$font = '"' . $font . '", sans-serif';
 		}
@@ -241,7 +243,7 @@ final class Appearance {
 				if ( ! preg_match( '/^\d{1,3}$/', $value ) ) {
 					return '';
 				}
-				$n = (int) $value;
+				$n   = (int) $value;
 				$max = 'border_radius' === $key ? 48 : 8;
 
 				return (string) max( 0, min( $max, $n ) );
@@ -329,7 +331,7 @@ final class Appearance {
 			}
 		}
 
-		$filtered = array_filter(
+		$filtered                         = array_filter(
 			$out,
 			static function ( $value ) {
 				return is_string( $value ) && '' !== $value;
@@ -425,7 +427,7 @@ final class Appearance {
 			unset( $e );
 		}
 
-		$filtered = array_filter(
+		$filtered                        = array_filter(
 			$out,
 			static function ( $value ) {
 				return is_string( $value ) && '' !== $value;

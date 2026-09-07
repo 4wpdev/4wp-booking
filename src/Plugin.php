@@ -52,6 +52,7 @@ final class Plugin {
 		Shortcode::register();
 		Block::register();
 		Elementor::register();
+		Forms\Form_Source_Registry::boot();
 	}
 
 	/**
@@ -103,18 +104,18 @@ final class Plugin {
 	}
 
 	/**
-	 * Load translations from /languages. Ukrainian ships with the plugin.
+	 * Load bundled translations from /languages (Ukrainian ships with the plugin).
+	 *
+	 * WordPress.org also loads translations from the language packs when available.
 	 *
 	 * @return void
 	 */
 	public function load_textdomain(): void {
-		$rel    = dirname( plugin_basename( FORWP_BOOKING_FILE ) ) . '/languages';
 		$locale = self::resolve_locale();
 		$mofile = FORWP_BOOKING_PATH . 'languages/4wp-booking-' . $locale . '.mo';
 		if ( is_readable( $mofile ) ) {
 			load_textdomain( '4wp-booking', $mofile );
 		}
-		load_plugin_textdomain( '4wp-booking', false, $rel );
 	}
 
 	/**

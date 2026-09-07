@@ -2,7 +2,7 @@
 	"name": "4wp-dev/4wp-booking",
 	"description": "4WP Booking — pluggable appointment booking (ClinicCards live; Google Calendar and Calendly planned).",
 	"type": "wordpress-plugin",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"license": "GPL-2.0-or-later",
 	"require": {
 		"php": ">=7.4"

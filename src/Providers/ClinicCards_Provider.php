@@ -124,13 +124,13 @@ final class ClinicCards_Provider implements Booking_Provider_Interface, Booking_
 					}
 					$name        = isset( $item['price_item_name'] ) ? (string) $item['price_item_name'] : '';
 					$offerings[] = array(
-						'id'                => $specialist_id . ':' . $price_id,
-						'label'             => '' !== $specialist_name ? $specialist_name : $name,
-						'specialist_label'  => $specialist_name,
-						'service_label'     => $name,
-						'duration'          => $duration,
-						'specialist_id'     => $specialist_id,
-						'service_id'        => $price_id,
+						'id'               => $specialist_id . ':' . $price_id,
+						'label'            => '' !== $specialist_name ? $specialist_name : $name,
+						'specialist_label' => $specialist_name,
+						'service_label'    => $name,
+						'duration'         => $duration,
+						'specialist_id'    => $specialist_id,
+						'service_id'       => $price_id,
 					);
 				}
 			}

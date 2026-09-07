@@ -228,6 +228,7 @@ final class Admin_Settings {
 			'notify_emails'    => '',
 			'channel_tokens'   => array(),
 			'channel_targets'  => array(),
+			'form_telegram'    => array(),
 			'appearance'       => array(),
 		);
 
@@ -481,8 +482,11 @@ final class Admin_Settings {
 			return array();
 		}
 
-		$parts = preg_split( '/[,\s;]+/', $source ) ?: array();
-		$out   = array();
+		$parts = preg_split( '/[,\s;]+/', $source );
+		if ( ! is_array( $parts ) ) {
+			$parts = array();
+		}
+		$out = array();
 		foreach ( $parts as $part ) {
 			$email = sanitize_email( (string) $part );
 			if ( '' !== $email && is_email( $email ) && ! in_array( $email, $out, true ) ) {
@@ -500,8 +504,11 @@ final class Admin_Settings {
 	 * @return string[]
 	 */
 	public static function parse_id_list( string $raw ): array {
-		$parts = preg_split( '/[,\s;]+/', trim( $raw ) ) ?: array();
-		$out   = array();
+		$parts = preg_split( '/[,\s;]+/', trim( $raw ) );
+		if ( ! is_array( $parts ) ) {
+			$parts = array();
+		}
+		$out = array();
 		foreach ( $parts as $part ) {
 			$id = sanitize_text_field( (string) $part );
 			if ( '' !== $id && ! in_array( $id, $out, true ) ) {
@@ -632,5 +639,125 @@ final class Admin_Settings {
 			$options['channel_targets'][ $slug ] = $raw;
 		}
 		$this->save_options( $options );
+	}
+
+	/**
+	 * Form → Telegram settings (enabled, chat ids, per-source toggles).
+	 *
+	 * @return array<string, mixed>
+	 */
+	public function get_form_telegram_settings(): array {
+		$options = $this->get_options();
+		$stored  = isset( $options['form_telegram'] ) && is_array( $options['form_telegram'] ) ? $options['form_telegram'] : array();
+		$sources = isset( $stored['sources'] ) && is_array( $stored['sources'] ) ? $stored['sources'] : array();
+
+		$normalized_sources = array();
+		foreach ( array( 'contact-form-7', 'wpforms', 'gravityforms' ) as $slug ) {
+			$row                         = isset( $sources[ $slug ] ) && is_array( $sources[ $slug ] ) ? $sources[ $slug ] : array();
+			$normalized_sources[ $slug ] = array(
+				'enabled'     => ! array_key_exists( 'enabled', $row ) || ! empty( $row['enabled'] ),
+				'exclude_ids' => isset( $row['exclude_ids'] ) ? sanitize_text_field( (string) $row['exclude_ids'] ) : '',
+			);
+		}
+
+		return array(
+			'enabled'  => ! empty( $stored['enabled'] ),
+			'chat_ids' => isset( $stored['chat_ids'] ) ? (string) $stored['chat_ids'] : '',
+			'sources'  => $normalized_sources,
+		);
+	}
+
+	/**
+	 * Persist form Telegram settings from REST.
+	 *
+	 * @param array<string, mixed> $input Payload.
+	 * @return void
+	 */
+	public function set_form_telegram_settings( array $input ): void {
+		$current = $this->get_form_telegram_settings();
+		$sources = $current['sources'];
+
+		if ( isset( $input['sources'] ) && is_array( $input['sources'] ) ) {
+			foreach ( $input['sources'] as $slug => $row ) {
+				$slug = sanitize_key( (string) $slug );
+				if ( '' === $slug || ! isset( $sources[ $slug ] ) || ! is_array( $row ) ) {
+					continue;
+				}
+				$sources[ $slug ] = array(
+					'enabled'     => ! empty( $row['enabled'] ),
+					'exclude_ids' => isset( $row['exclude_ids'] ) ? sanitize_text_field( (string) $row['exclude_ids'] ) : '',
+				);
+			}
+		}
+
+		$options                  = $this->get_options();
+		$options['form_telegram'] = array(
+			'enabled'  => ! empty( $input['enabled'] ),
+			'chat_ids' => isset( $input['chat_ids'] ) ? sanitize_text_field( (string) $input['chat_ids'] ) : '',
+			'sources'  => $sources,
+		);
+		$this->save_options( $options );
+	}
+
+	/**
+	 * Whether form → Telegram is enabled.
+	 */
+	public function is_form_telegram_enabled(): bool {
+		return ! empty( $this->get_form_telegram_settings()['enabled'] );
+	}
+
+	/**
+	 * Whether a form source is enabled.
+	 *
+	 * @param string $slug Source slug.
+	 */
+	public function is_form_source_enabled( string $slug ): bool {
+		$slug     = sanitize_key( $slug );
+		$settings = $this->get_form_telegram_settings();
+		$sources  = $settings['sources'];
+
+		return isset( $sources[ $slug ] ) && ! empty( $sources[ $slug ]['enabled'] );
+	}
+
+	/**
+	 * Whether a form id is excluded for a source.
+	 *
+	 * @param string $slug    Source slug.
+	 * @param int    $form_id Form id.
+	 */
+	public function is_form_excluded( string $slug, int $form_id ): bool {
+		if ( $form_id <= 0 ) {
+			return false;
+		}
+		$slug     = sanitize_key( $slug );
+		$settings = $this->get_form_telegram_settings();
+		$sources  = $settings['sources'];
+		$raw      = isset( $sources[ $slug ]['exclude_ids'] ) ? (string) $sources[ $slug ]['exclude_ids'] : '';
+		$ids      = self::parse_id_list( $raw );
+
+		return in_array( (string) $form_id, $ids, true );
+	}
+
+	/**
+	 * Chat ids for form notifications.
+	 * Empty form list falls back to booking Telegram chat ids.
+	 *
+	 * @return string[]
+	 */
+	public function get_form_telegram_chat_ids(): array {
+		$settings = $this->get_form_telegram_settings();
+		$form_ids = self::parse_id_list( (string) $settings['chat_ids'] );
+		if ( array() !== $form_ids ) {
+			return $form_ids;
+		}
+
+		return $this->get_channel_targets( 'telegram' );
+	}
+
+	/**
+	 * Raw form chat ids field (empty means “use booking chats”).
+	 */
+	public function get_form_telegram_chat_ids_raw(): string {
+		return (string) $this->get_form_telegram_settings()['chat_ids'];
 	}
 }

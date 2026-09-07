@@ -47,7 +47,7 @@ final class Telegram_Channel implements Channel_Provider_Interface {
 	}
 
 	/**
-	 * Token + at least one chat id.
+	 * Token + booking chat ids.
 	 *
 	 * @return bool
 	 */
@@ -59,25 +59,51 @@ final class Telegram_Channel implements Channel_Provider_Interface {
 	}
 
 	/**
-	 * POST sendMessage for each chat id.
+	 * Token + resolved form chat ids (form list or booking fallback).
+	 *
+	 * @return bool
+	 */
+	public function is_ready_for_forms(): bool {
+		$settings = Admin_Settings::instance();
+
+		return '' !== $settings->get_channel_token( self::SLUG )
+			&& array() !== $settings->get_form_telegram_chat_ids();
+	}
+
+	/**
+	 * POST sendMessage for each booking chat id.
 	 *
 	 * @param string $text Message.
 	 * @return true|\WP_Error
 	 */
 	public function send( string $text ) {
-		if ( ! $this->is_ready() ) {
+		return $this->send_to_chats( $text, Admin_Settings::instance()->get_channel_targets( self::SLUG ) );
+	}
+
+	/**
+	 * POST sendMessage for explicit chat ids.
+	 *
+	 * @param string   $text     Message.
+	 * @param string[] $chat_ids Chat ids.
+	 * @return true|\WP_Error
+	 */
+	public function send_to_chats( string $text, array $chat_ids ) {
+		$token = Admin_Settings::instance()->get_channel_token( self::SLUG );
+		if ( '' === $token || array() === $chat_ids ) {
 			return new \WP_Error(
 				'forwp_booking_telegram_not_ready',
 				__( 'Telegram is not configured.', '4wp-booking' )
 			);
 		}
 
-		$settings = Admin_Settings::instance();
-		$token    = $settings->get_channel_token( self::SLUG );
-		$sent     = 0;
-		$last     = null;
+		$sent = 0;
+		$last = null;
 
-		foreach ( $settings->get_channel_targets( self::SLUG ) as $chat_id ) {
+		foreach ( $chat_ids as $chat_id ) {
+			$chat_id = (string) $chat_id;
+			if ( '' === $chat_id ) {
+				continue;
+			}
 			$url      = 'https://api.telegram.org/bot' . $token . '/sendMessage';
 			$response = wp_remote_post(
 				$url,
