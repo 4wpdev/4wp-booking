@@ -4,7 +4,7 @@ Tags: booking, appointments, calendar, telegram, gutenberg
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.4.0
+Stable tag: 0.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,9 @@ Yes. On the Notifications tab you can forward Contact Form 7, WPForms, and Gravi
 
 == Changelog ==
 
+= 0.4.1 =
+* WordPress.org T1: `Tested up to` only in readme; omit bundled translation binaries from the release ZIP.
+
 = 0.4.0 =
 * Notifications tab: email and Telegram for bookings; form → Telegram for CF7, WPForms, and Gravity Forms.
 * Trademark disclaimers clarified for WordPress and ClinicCards.
@@ -97,6 +100,9 @@ Source: https://github.com/4wpdev/4wp-booking
 Admin UI assets: `npm install && npm run build` (requires Node.js). PHP quality: `composer install && composer test`.
 
 == Upgrade Notice ==
+
+= 0.4.1 =
+Directory review fixes: Tested up to header cleanup and release package without locale binaries.
 
 = 0.4.0 =
 Adds the Notifications tab (email, Telegram, optional form forwarding). Configure channels under 4WP Booking → Notifications after update.

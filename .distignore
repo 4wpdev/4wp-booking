@@ -32,3 +32,8 @@ package.json
 .phpunit.result.cache
 .phpunit.cache
 *.zip
+
+# wp.org: translations via translate.wordpress.org — do not ship locale binaries
+languages/*.po
+languages/*.mo
+languages/*-*.json

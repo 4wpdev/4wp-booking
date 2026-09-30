@@ -14,3 +14,5 @@ WordPress.org users see [readme.txt](../../readme.txt) (`== Changelog ==`).
 ## Not shipped in wp.org ZIP
 
 This `docs/` tree is excluded via [.distignore](../../.distignore).
+
+Do **not** skip Google Business Profile for “small” or SVN-only releases.
