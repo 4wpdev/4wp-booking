@@ -7,6 +7,7 @@
 
 namespace ForWP\Booking;
 
+use ForWP\Booking\Channels\Telegram_Channel;
 use ForWP\Booking\Forms\Form_Source_Registry;
 use ForWP\Booking\Providers\ClinicCards_Provider;
 use WP_REST_Request;
@@ -49,6 +50,25 @@ final class Rest_Settings {
 					'methods'             => \WP_REST_Server::CREATABLE,
 					'callback'            => array( self::class, 'update_settings' ),
 					'permission_callback' => array( self::class, 'can_manage' ),
+				),
+			)
+		);
+
+		register_rest_route(
+			self::NAMESPACE,
+			'/telegram/test',
+			array(
+				array(
+					'methods'             => \WP_REST_Server::CREATABLE,
+					'callback'            => array( self::class, 'send_telegram_test' ),
+					'permission_callback' => array( self::class, 'can_manage' ),
+					'args'                => array(
+						'message' => array(
+							'type'              => 'string',
+							'required'          => true,
+							'sanitize_callback' => 'sanitize_textarea_field',
+						),
+					),
 				),
 			)
 		);
@@ -121,6 +141,53 @@ final class Rest_Settings {
 				'appearance_defaults'       => Appearance::site_defaults(),
 				'appearance_sources'        => Appearance::sources(),
 				'shadow_presets'            => array_keys( Appearance::shadow_presets() ),
+			),
+			200
+		);
+	}
+
+	/**
+	 * Send one plain-text message to the saved Telegram booking chats.
+	 *
+	 * @param WP_REST_Request $request Request.
+	 * @return WP_REST_Response|\WP_Error
+	 */
+	public static function send_telegram_test( WP_REST_Request $request ) {
+		$message = trim( (string) $request->get_param( 'message' ) );
+		if ( '' === $message ) {
+			return new \WP_Error(
+				'forwp_booking_telegram_empty',
+				__( 'Enter a message.', '4wp-booking' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		if ( strlen( $message ) > 4096 ) {
+			return new \WP_Error(
+				'forwp_booking_telegram_long',
+				__( 'Message is longer than 4096 characters.', '4wp-booking' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$channel = Channel_Registry::get( Telegram_Channel::SLUG );
+		if ( ! $channel || ! $channel->is_implemented() ) {
+			return new \WP_Error(
+				'forwp_booking_telegram_missing',
+				__( 'Telegram is not available.', '4wp-booking' ),
+				array( 'status' => 400 )
+			);
+		}
+
+		$sent = $channel->send( $message );
+		if ( is_wp_error( $sent ) ) {
+			$sent->add_data( array( 'status' => 400 ) );
+			return $sent;
+		}
+
+		return new WP_REST_Response(
+			array(
+				'sent' => true,
 			),
 			200
 		);

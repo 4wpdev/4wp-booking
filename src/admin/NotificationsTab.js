@@ -130,6 +130,9 @@ export default function NotificationsTab() {
 		sources: {},
 	} );
 	const [ formSources, setFormSources ] = useState( [] );
+	const [ testMessage, setTestMessage ] = useState( '' );
+	const [ testing, setTesting ] = useState( false );
+	const [ testNotice, setTestNotice ] = useState( null );
 
 	const applySettings = ( data ) => {
 		setNotifyEmails( data.notify_emails || '' );
@@ -237,6 +240,36 @@ export default function NotificationsTab() {
 			);
 		} finally {
 			setSaving( false );
+		}
+	};
+
+	const sendTestMessage = async () => {
+		const message = testMessage.trim();
+		if ( ! message || testing ) {
+			return;
+		}
+
+		setTesting( true );
+		setTestNotice( null );
+		try {
+			await apiFetch( {
+				path: '/forwp-booking/v1/telegram/test',
+				method: 'POST',
+				data: { message },
+			} );
+			setTestNotice( {
+				status: 'success',
+				text: __( 'Sent to Telegram.', '4wp-booking' ),
+			} );
+		} catch ( e ) {
+			setTestNotice( {
+				status: 'error',
+				text:
+					e?.message ||
+					__( 'Could not send the test message.', '4wp-booking' ),
+			} );
+		} finally {
+			setTesting( false );
 		}
 	};
 
@@ -389,6 +422,40 @@ export default function NotificationsTab() {
 											'4wp-booking'
 										) }
 									/>
+								</div>
+
+								<div className="forwp-booking-notify__block forwp-booking-notify__block--test">
+									<h4 className="forwp-booking-notify__label">
+										{ __( 'Test message', '4wp-booking' ) }
+									</h4>
+									<TextControl
+										label={ __( 'Message', '4wp-booking' ) }
+										value={ testMessage }
+										onChange={ setTestMessage }
+										help={ __(
+											'Sent to the saved booking Chat IDs. Save the bot token and Chat IDs first.',
+											'4wp-booking'
+										) }
+									/>
+									{ testNotice && (
+										<Notice
+											status={ testNotice.status }
+											isDismissible
+											onRemove={ () => setTestNotice( null ) }
+										>
+											{ testNotice.text }
+										</Notice>
+									) }
+									<Button
+										variant="secondary"
+										onClick={ sendTestMessage }
+										disabled={
+											testing || '' === testMessage.trim()
+										}
+										isBusy={ testing }
+									>
+										{ __( 'Test Message', '4wp-booking' ) }
+									</Button>
 								</div>
 
 								<TelegramSetupHelp />

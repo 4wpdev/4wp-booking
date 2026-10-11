@@ -81,13 +81,24 @@ final class Telegram_Channel implements Channel_Provider_Interface {
 	}
 
 	/**
-	 * POST sendMessage for explicit chat ids.
+	 * Same chats, HTML body (links and status rows).
 	 *
-	 * @param string   $text     Message.
-	 * @param string[] $chat_ids Chat ids.
+	 * @param string $html Message.
 	 * @return true|\WP_Error
 	 */
-	public function send_to_chats( string $text, array $chat_ids ) {
+	public function send_html( string $html ) {
+		return $this->send_to_chats( $html, Admin_Settings::instance()->get_channel_targets( self::SLUG ), 'HTML' );
+	}
+
+	/**
+	 * POST sendMessage for explicit chat ids.
+	 *
+	 * @param string   $text       Message.
+	 * @param string[] $chat_ids   Chat ids.
+	 * @param string   $parse_mode Empty or HTML.
+	 * @return true|\WP_Error
+	 */
+	public function send_to_chats( string $text, array $chat_ids, string $parse_mode = '' ) {
 		$token = Admin_Settings::instance()->get_channel_token( self::SLUG );
 		if ( '' === $token || array() === $chat_ids ) {
 			return new \WP_Error(
@@ -113,10 +124,16 @@ final class Telegram_Channel implements Channel_Provider_Interface {
 						'Content-Type' => 'application/json',
 					),
 					'body'    => wp_json_encode(
-						array(
-							'chat_id'                  => $chat_id,
-							'text'                     => $text,
-							'disable_web_page_preview' => true,
+						array_filter(
+							array(
+								'chat_id'                  => $chat_id,
+								'text'                     => $text,
+								'parse_mode'               => '' !== $parse_mode ? $parse_mode : null,
+								'disable_web_page_preview' => true,
+							),
+							static function ( $value ) {
+								return null !== $value;
+							}
 						)
 					),
 				)
